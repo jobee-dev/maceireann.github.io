@@ -1,0 +1,101 @@
+<!-- Reusable Email Signup Snippet -->
+<section class="signup-box">
+  <h3>Join the journey</h3>
+  <form id="signup" class="signup-form">
+    <input type="email" id="signup-email" placeholder="Enter your email" required />
+    <button type="submit">Subscribe</button>
+  </form>
+  <p id="signup-msg" class="msg hidden"></p>
+</section>
+
+<style>
+.signup-box {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.signup-form {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.signup-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.signup-form button {
+  padding: 10px 20px;
+  background: #1a3c2a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.signup-form button:hover {
+  background: #2d5a42;
+}
+
+.msg {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.msg.hidden {
+  display: none;
+}
+
+.msg.ok {
+  color: #1a3c2a;
+  background: #e8f5e8;
+  border: 1px solid #c3e6c3;
+}
+
+.msg.err {
+  color: #a61111;
+  background: #ffe6e6;
+  border: 1px solid #ffb3b3;
+}
+</style>
+
+<script>
+document.getElementById('signup').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const email = document.getElementById('signup-email').value;
+  const msgEl = document.getElementById('signup-msg');
+  const formEl = document.getElementById('signup');
+  
+  try {
+    const response = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email })
+    });
+    
+    if (response.ok) {
+      formEl.innerHTML = '<p class="msg ok">Sláinte! You\'re on the list.</p>';
+    } else {
+      const errorData = await response.json();
+      msgEl.textContent = errorData.error || 'Something went wrong. Please try again.';
+      msgEl.className = 'msg err';
+      msgEl.classList.remove('hidden');
+    }
+  } catch (error) {
+    msgEl.textContent = 'Network error. Please try again.';
+    msgEl.className = 'msg err';
+    msgEl.classList.remove('hidden');
+  }
+});
+</script> 
