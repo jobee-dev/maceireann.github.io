@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacEireann | Your Irish Storyteller</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Universal Styles & Variables --- */
+        :root {
+            --primary-green: #1a3c2a;
+            --text-light: #f5f5f5;
+            --text-dark: #333333;
+            --accent-color: #e87b32; /* A warm, earthy orange */
+            --background-light: #f9f7f3;
+            --font-heading: 'Lora', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* --- Hero Section (Section 1) --- */
+        #hero {
+            background: url('images/image1.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        #hero h1 {
+            font-size: 4rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            font-weight: 300;
+        }
+
+        /* --- Form Styles --- */
+        .waitlist-form {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .waitlist-form input[type="email"] {
+            padding: 15px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            max-width: 100%;
+            font-family: var(--font-body);
+        }
+
+        .waitlist-form button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        .waitlist-form button:hover {
+            background-color: #d16a24;
+        }
+
+        /* --- Contrast Section (Section 2) --- */
+        #contrast .container {
+            text-align: center;
+        }
+
+        .contrast-grid {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start; /* Aligns items to the top */
+            margin-top: 40px;
+        }
+
+        .contrast-column {
+            flex: 1;
+            text-align: left;
+        }
+
+        /* --- UPDATED STYLE --- */
+        .contrast-column img {
+            width: 100%;
+            height: 350px; /* Sets a fixed height for both images */
+            object-fit: cover; /* Makes images cover the area without distortion */
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contrast-column p {
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+        
+        #contrast h2 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        /* --- How It Works Section (Section 3) --- */
+        #how-it-works {
+            background: linear-gradient(rgba(249, 247, 243, 0.9), rgba(249, 247, 243, 0.9)), url('images/image9.jpg') no-repeat center center/cover;
+        }
+
+        #how-it-works h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .step {
+            flex: 1;
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        .step h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* --- Gallery Section (Section 4) --- */
+        #gallery h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 250px;
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(26, 60, 42, 0.85) 0%, rgba(26, 60, 42, 0) 60%);
+            color: var(--text-light);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+        
+        .gallery-caption h4 {
+            color: var(--text-light);
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-caption h4 {
+             transform: translateY(0);
+        }
+
+        /* Specific grid items for mosaic layout */
+        .item-1 { grid-column: 1 / 2; grid-row: 1 / 3; }
+        .item-2 { grid-column: 2 / 3; grid-row: 1 / 2; }
+        .item-3 { grid-column: 3 / 4; grid-row: 1 / 2; }
+        .item-4 { grid-column: 2 / 4; grid-row: 2 / 3; }
+        .item-5 { grid-column: 1 / 2; grid-row: 3 / 4; }
+        .item-6 { grid-column: 2 / 3; grid-row: 3 / 4; }
+        
+        /* --- Final CTA Section (Section 5) --- */
+        #final-cta {
+            background: url('images/image8.jpg') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            position: relative;
+        }
+        
+        #final-cta h2 {
+            font-size: 3rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        #final-cta p {
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-green);
+            color: #a7b5ae;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer .slainte {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+        
+        /* --- Responsive Styles --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+
+            section { padding: 60px 0; }
+
+            .contrast-grid {
+                flex-direction: column;
+            }
+
+            .steps-container {
+                flex-direction: column;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 250px;
+            }
+
+            /* Unset mosaic styles for mobile */
+            .gallery-item {
+                grid-column: auto;
+                grid-row: auto;
+            }
+            
+            .gallery-item .gallery-caption {
+                opacity: 1; /* Captions always visible on mobile */
+                 background: linear-gradient(to top, rgba(26, 60, 42, 0.85) 0%, rgba(26, 60, 42, 0) 80%);
+            }
+            .gallery-item .gallery-caption h4 {
+                 transform: translateY(0);
+            }
+
+            .waitlist-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .waitlist-form input[type="email"],
+            .waitlist-form button {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SECTION 1: HERO -->
+    <header id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <!-- Your logo could go here -->
+            <h1>Don't Just See Ireland. Hear It's Soul.</h1>
+            <p>The road is calling. MacEireann puts a traditional Irish storyteller in your pocket, guiding you with turn-by-turn navigation and unforgettable tales of the land. The ultimate audio-guided driving tour app is coming soon.</p>
+            <form class="waitlist-form" action="#">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Be The First To Wander</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECTION 2: THE OLD PATH VS. THE NEW WAY -->
+        <section id="contrast">
+            <div class="container">
+                <div class="contrast-grid">
+                    <div class="contrast-column">
+                        <img src="images/image4.jpg" alt="A colorful village street in Doolin, Ireland.">
+                        <p>Tired of big bus schedules and guidebooks that only scratch the surface? Ever driven past an ancient ruin and wished you knew its story?</p>
+                    </div>
+                    <div class="contrast-column">
+                        <img src="images/image5.jpg" alt="A classic VW Campervan parked on a scenic road with a sheep walking by.">
+                        <p>MacEireann sets you free. Journey at your own pace. Follow the whispers of history down forgotten roads. Discover the real Ireland, one story at a time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: HOW IT WORKS -->
+        <section id="how-it-works">
+            <div class="container">
+                <h2>Your Personal Seanachaí for the Open Road</h2>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-icon">🗺️</div>
+                        <h3>Choose Your Journey</h3>
+                        <p>From the epic coasts of the Wild Atlantic Way to the myth-laden hills of the Ancient East, select a tour that speaks to you.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">▶️</div>
+                        <h3>Press Play & Drive</h3>
+                        <p>Our smart sat-nav guides you seamlessly. As you approach a point of interest, a story automatically begins.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">🎧</div>
+                        <h3>Listen & Immerse</h3>
+                        <p>Hear the tales of giants and saints, rebels and poets, all narrated by authentic Irish voices, set to a backdrop of traditional music.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: GALLERY OF EXPERIENCES -->
+        <section id="gallery">
+            <div class="container">
+                <h2>Every Road Holds a Story. Every Hillside, a Secret.</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item item-1" style="background-image: url('images/image7.jpg');">
+                        <div class="gallery-caption"><h4>Whispers of Saints & Scholars</h4><p>Uncover the peace of ancient monastic sites.</p></div>
+                    </div>
+                    <div class="gallery-item item-2" style="background-image: url('images/image3.jpg');">
+                         <div class="gallery-caption"><h4>The Hearth of the Nation</h4><p>Step back in time in a traditional cottage.</p></div>
+                    </div>
+                    <div class="gallery-item item-3" style="background-image: url('images/image10.jpg');">
+                         <div class="gallery-caption"><h4>The Verdant Valleys</h4><p>Find beauty in quiet, green corners.</p></div>
+                    </div>
+                     <div class="gallery-item item-4" style="background-image: url('images/image6.jpg');">
+                         <div class="gallery-caption"><h4>Lakeside Legends</h4><p>Rest where myths and mountains meet.</p></div>
+                    </div>
+                     <div class="gallery-item item-5" style="background-image: url('images/image2.jpg');">
+                         <div class="gallery-caption"><h4>The Rhythm of Rural Life</h4><p>Meet the locals of the landscape.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: FINAL CTA -->
+        <section id="final-cta">
+            <div class="hero-overlay"></div>
+            <div class="hero-content container">
+                <h2>Your Irish adventure is waiting.</h2>
+                <p>The stories are ready. The roads are clear. All that's missing is you. Sign up to the MacEireann waitlist and we'll notify you the second the app is launched. You'll get early access and an exclusive founder's discount for being one of our first.</p>
+                <form class="waitlist-form" action="#">
+                    <input type="email" name="email" placeholder="your.email@example.com" required>
+                    <button type="submit">Join The Journey</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2024 MacEireann. All Rights Reserved.</p>
+            <p class="slainte">Sláinte!</p>
+        </div>
+    </footer>
+
+</body>
+</html>
