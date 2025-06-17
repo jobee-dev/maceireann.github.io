@@ -74,7 +74,7 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            /* STEP 2: Add padding to account for the top and bottom notches */
+            /* Ensure content stays below the notch/status bar */
             padding-top: env(safe-area-inset-top);
             padding-bottom: env(safe-area-inset-bottom);
         }
@@ -271,8 +271,7 @@
             color: var(--text-light);
             text-align: center;
             position: relative;
-            /* STEP 2: Also add padding here for safety */
-            padding-top: env(safe-area-inset-top);
+            /* Content extends behind the status bar/notch */
             padding-bottom: env(safe-area-inset-bottom);
         }
         
@@ -345,6 +344,13 @@
                 max-width: 350px;
             }
         }
+
+        /* --- Hero & Final CTA safe-area compensation --- */
+        #hero,
+        #final-cta {
+            /* Pull the section background up so it fills the space behind the notch */
+            margin-top: calc(env(safe-area-inset-top) * -1);
+        }
     </style>
 </head>
 <body>
@@ -352,7 +358,7 @@
     <header id="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content container">
-            <h1>Don't Just See Ireland. Hear Its Soul.</h1>
+            <h1>Don't Just See Ireland. Hear It's Soul.</h1>
             <p>The road is calling. MacEireann puts a traditional Irish storyteller in your pocket, guiding you with turn-by-turn navigation and unforgettable tales of the land. The ultimate audio-guided driving tour app is coming soon.</p>
             <form class="waitlist-form" action="#">
                 <input type="email" name="email" placeholder="Enter your email" required>
