@@ -7,7 +7,7 @@
     <title>MacEireann | Your Irish Storyteller</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
 
     <link rel="canonical" href="https://maceireann.ie/">
@@ -63,13 +63,13 @@
     <style>
         /* --- Universal Styles & Variables --- */
         :root {
-            --primary-green: #1a3c2a;
+            --primary-green: #0F291E;
             --text-light: #f5f5f5;
-            --text-dark: #333333;
-            --accent-color: #e87b32; /* A warm, earthy orange */
-            --background-light: #f9f7f3;
+            --text-dark: #2C3E35;
+            --accent-color: #E67E22; /* Rich, warm earthy orange/gold */
+            --background-light: #FDFBF7; /* Softer, warmer off-white cream */
             --font-heading: 'Lora', serif;
-            --font-body: 'Lato', sans-serif;
+            --font-body: 'Inter', sans-serif;
         }
 
         * {
@@ -103,14 +103,31 @@
 
         /* --- Hero Section (Section 1) --- */
         #hero {
-            background: url('images/image1.jpg') no-repeat center center/cover;
-            min-height: 100vh; /* Use min-height to ensure it fills the screen */
+            position: relative;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: var(--text-light);
-            position: relative;
+            overflow: hidden; /* For the background animation */
+        }
+        
+        #hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/image1.jpg') no-repeat center center/cover;
+            animation: breathe 25s infinite alternate ease-in-out;
+            z-index: 0;
+        }
+        
+        @keyframes breathe {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
         }
 
         .hero-overlay {
@@ -119,7 +136,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, rgba(15, 41, 30, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+            z-index: 1;
         }
 
         /* --- Branding (Logo + Name) --- */
@@ -132,15 +150,15 @@
             align-items: center;
             z-index: 3;
             pointer-events: none; /* so it never blocks clicks */
-            background: rgba(26, 60, 42, 0.55); /* translucent primary green */
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px); /* Safari */
-            padding: calc(6px + env(safe-area-inset-top)) 24px 6px 24px;
-            border-radius: 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            background: rgba(15, 41, 30, 0.65); /* translucent primary green */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px); /* Safari */
+            padding: calc(10px + env(safe-area-inset-top)) 24px 10px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border for glass effect */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
             opacity: 0;
             transform: translateY(-10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .site-brand.visible {
@@ -175,17 +193,22 @@
         }
         
         #hero h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: var(--text-light);
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            margin-bottom: 24px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            letter-spacing: -1px;
+            line-height: 1.1;
         }
 
         #hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 30px auto;
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
             font-weight: 300;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            letter-spacing: 0.5px;
+            line-height: 1.7;
         }
 
         /* --- Form Styles --- */
@@ -193,35 +216,60 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
+            position: relative;
         }
 
         .waitlist-form input[type="email"] {
-            padding: 15px;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 300px;
+            padding: 16px 24px;
+            font-size: 1.05rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            width: 340px;
             max-width: 100%;
             font-family: var(--font-body);
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--text-light);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        .waitlist-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .waitlist-form input[type="email"]:focus {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
         }
 
         .waitlist-form button {
-            padding: 15px 30px;
+            padding: 16px 36px;
             font-size: 1rem;
             background-color: var(--accent-color);
-            color: var(--text-light);
+            color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             font-family: var(--font-body);
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
-            transition: background-color 0.3s ease;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
         }
 
         .waitlist-form button:hover {
-            background-color: #d16a24;
+            background-color: #d67118;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+        }
+        
+        .waitlist-form button:active {
+            transform: translateY(1px);
         }
 
         /* --- Message Styles for New Forms --- */
@@ -256,94 +304,213 @@
         }
 
         /* --- Contrast Section (Section 2) --- */
+        #contrast {
+            background-color: #fff;
+            position: relative;
+        }
+
         #contrast .container {
             text-align: center;
         }
+        
+        #contrast h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-green);
+        }
 
         .contrast-grid {
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
             margin-top: 40px;
         }
 
         .contrast-column {
-            flex: 1;
+            position: relative;
             text-align: left;
+        }
+        
+        .contrast-column:nth-child(2) {
+            transform: translateY(40px); /* Asymmetrical layout */
+        }
+
+        .contrast-image-wrapper {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            transition: transform 0.4s ease;
+        }
+        
+        .contrast-image-wrapper:hover {
+            transform: translateY(-5px);
         }
 
         .contrast-column img {
             width: 100%;
-            height: 350px;
+            height: 400px;
             object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .contrast-column p {
-            margin-top: 20px;
-            font-size: 1.1rem;
+            display: block;
+            transition: transform 0.6s ease;
         }
         
-        #contrast h2 {
-            font-size: 2.5rem;
-            text-align: center;
+        .contrast-image-wrapper:hover img {
+            transform: scale(1.03);
+        }
+
+        .contrast-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+            margin-top: -50px;
+            margin-left: 20px;
+            margin-right: 20px;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contrast-card p {
+            margin: 0;
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            line-height: 1.7;
         }
 
         /* --- How It Works Section (Section 3) --- */
         #how-it-works {
-            background: linear-gradient(rgba(249, 247, 243, 0.9), rgba(249, 247, 243, 0.9)), url('images/image9.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(253, 251, 247, 0.95), rgba(253, 251, 247, 0.95)), url('images/image9.jpg') no-repeat center center/cover;
+            padding: 100px 0;
         }
 
         #how-it-works h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 70px;
         }
 
         .steps-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
             text-align: center;
         }
 
         .step {
-            flex: 1;
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.4s ease;
+            position: relative;
+            top: 0;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
         }
 
         .step-icon {
-            font-size: 3rem;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px auto;
+            background: rgba(230, 126, 34, 0.1); /* Light accent background */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--accent-color);
-            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .step-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke-width: 1.5;
+        }
+        
+        .step:hover .step-icon {
+            background: var(--accent-color);
+            color: #fff;
+            transform: scale(1.1) rotate(5deg);
         }
         
         .step h3 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        /* --- Gallery Section (Section 4) --- */
-        #gallery h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            color: var(--primary-green);
         }
         
+        .step p {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* --- Enhanced Interactive Gallery (Section 4) --- */
+        #gallery {
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        #gallery h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        #gallery > .container > p {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 250px;
-            gap: 15px;
+            grid-auto-rows: 280px;
+            gap: 20px;
         }
-        
+
         .gallery-item {
             position: relative;
             background-size: cover;
             background-position: center;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        /* Inner div for the background image to allow scaling without affecting the container */
+        .gallery-item-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 1;
+        }
+
+        .gallery-item:hover .gallery-item-bg {
+            transform: scale(1.08); /* Slow Ken Burns effect */
         }
 
         .gallery-item .gallery-caption {
@@ -351,31 +518,77 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(26, 60, 42, 0.85) 0%, rgba(26, 60, 42, 0) 60%);
+            padding: 24px;
+            background: rgba(15, 41, 30, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255,255,255,0.1);
             color: var(--text-light);
-            padding: 20px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+            transform: translateY(10px);
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 2;
         }
 
         .gallery-item:hover .gallery-caption {
             opacity: 1;
+            transform: translateY(0);
         }
         
         .gallery-caption h4 {
             color: var(--text-light);
-            margin-bottom: 5px;
-            font-size: 1.3rem;
-            transform: translateY(20px);
-            transition: transform 0.4s ease;
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+            font-family: var(--font-heading);
+            transform: translateY(15px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .gallery-item:hover .gallery-caption h4 {
              transform: translateY(0);
+        }
+        
+        .tour-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 0.85rem;
+            font-family: var(--font-body);
+            color: rgba(255,255,255,0.8);
+            transform: translateY(20px);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+        }
+        
+        .gallery-item:hover .tour-meta {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .tour-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .tour-badge {
+            position: relative; /* Relative to flow, we will push it to top left using absolute in item */
+            background: var(--accent-color);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            opacity: 1; /* Always visible to draw attention */
         }
 
         .item-1 { grid-column: 1 / 2; grid-row: 1 / 3; }
@@ -387,12 +600,13 @@
         
         /* --- Final CTA Section (Section 5) --- */
         #final-cta {
-            background: url('images/image8.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(15, 41, 30, 0.85), rgba(15, 41, 30, 0.95)), url('images/image8.jpg') no-repeat center center/cover;
             color: var(--text-light);
             text-align: center;
             position: relative;
+            padding: 120px 0;
             /* Content extends behind the status bar/notch */
-            padding-bottom: env(safe-area-inset-bottom);
+            padding-bottom: calc(120px + env(safe-area-inset-bottom));
         }
         
         #final-cta h2 {
@@ -431,27 +645,34 @@
         }
         
         /* --- Responsive Styles --- */
+        @media (max-width: 900px) {
+            .contrast-grid { grid-template-columns: 1fr; gap: 60px; }
+            .contrast-column:nth-child(2) { transform: none; }
+            .steps-container { grid-template-columns: 1fr; }
+        }
+        
         @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            h2 { font-size: 2rem; }
+            #hero h1 { font-size: 3rem; }
+            h2 { font-size: 2.2rem; }
 
             section { padding: 60px 0; }
 
-            .contrast-grid { flex-direction: column; }
-            .steps-container { flex-direction: column; }
-
             .gallery-grid {
                 grid-template-columns: 1fr;
-                grid-auto-rows: 250px;
+                grid-auto-rows: 280px;
             }
 
             .gallery-item { grid-column: auto; grid-row: auto; }
             
             .gallery-item .gallery-caption {
                 opacity: 1;
-                 background: linear-gradient(to top, rgba(26, 60, 42, 0.85) 0%, rgba(26, 60, 42, 0) 80%);
+                transform: translateY(0);
+                background: linear-gradient(to top, rgba(15, 41, 30, 0.95) 0%, rgba(15, 41, 30, 0.4) 100%);
+                border-top: none;
+                backdrop-filter: none;
             }
-            .gallery-item .gallery-caption h4 { transform: translateY(0); }
+            .gallery-item .gallery-caption h4,
+            .tour-meta { transform: translateY(0); opacity: 1; }
 
             .waitlist-form {
                 flex-direction: column;
@@ -496,14 +717,23 @@
         <!-- The rest of your main content is here -->
         <section id="contrast">
             <div class="container">
+                <h2>Two Ways to Travel</h2>
                 <div class="contrast-grid">
                     <div class="contrast-column">
-                        <img src="images/image4.jpg" alt="A colorful village street in Doolin, Ireland.">
-                        <p>Tired of big bus schedules and guidebooks that only scratch the surface? Ever driven past an ancient ruin and wished you knew its story?</p>
+                        <div class="contrast-image-wrapper">
+                            <img src="images/image4.jpg" alt="A colorful village street in Doolin, Ireland.">
+                        </div>
+                        <div class="contrast-card">
+                            <p>Tired of big bus schedules and guidebooks that only scratch the surface? Ever driven past an ancient ruin and wished you knew its story?</p>
+                        </div>
                     </div>
                     <div class="contrast-column">
-                        <img src="images/image5.jpg" alt="A classic VW Campervan parked on a scenic road with a sheep walking by.">
-                        <p>MacEireann sets you free. Journey at your own pace. Follow the whispers of history down forgotten roads. Discover the real Ireland, one story at a time.</p>
+                        <div class="contrast-image-wrapper">
+                            <img src="images/image5.jpg" alt="A classic VW Campervan parked on a scenic road with a sheep walking by.">
+                        </div>
+                        <div class="contrast-card">
+                            <p>MacEireann sets you free. Journey at your own pace. Follow the whispers of history down forgotten roads. Discover the real Ireland, one story at a time.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -514,17 +744,23 @@
                 <h2>Your Personal Seanachaí for the Open Road</h2>
                 <div class="steps-container">
                     <div class="step">
-                        <div class="step-icon">🗺️</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+                        </div>
                         <h3>Choose Your Journey</h3>
                         <p>From the epic coasts of the Wild Atlantic Way to the myth-laden hills of the Ancient East, select a tour that speaks to you.</p>
                     </div>
                     <div class="step">
-                        <div class="step-icon">▶️</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"></path><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                        </div>
                         <h3>Press Play & Drive</h3>
                         <p>Our smart sat-nav guides you seamlessly. As you approach a point of interest, a story automatically begins.</p>
                     </div>
                     <div class="step">
-                        <div class="step-icon">🎧</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+                        </div>
                         <h3>Listen & Immerse</h3>
                         <p>Hear the tales of giants and saints, rebels and poets, all narrated by authentic Irish voices, set to a backdrop of traditional music.</p>
                     </div>
@@ -534,22 +770,72 @@
 
         <section id="gallery">
             <div class="container">
-                <h2>Every Road Holds a Story. Every Hillside, a Secret.</h2>
+                <h2>Featured Journeys</h2>
+                <p>Preview some of the incredible routes currently available on the MacEireann app.</p>
                 <div class="gallery-grid">
-                    <div class="gallery-item item-1" style="background-image: url('images/image7.jpg');">
-                        <div class="gallery-caption"><h4>Whispers of Saints & Scholars</h4><p>Uncover the peace of ancient monastic sites.</p></div>
+                    <div class="gallery-item item-1">
+                        <div class="gallery-item-bg" style="background-image: url('images/image7.jpg');"></div>
+                        <div class="tour-badge">Wild Atlantic Way</div>
+                        <div class="gallery-caption">
+                            <h4>Ring of Kerry</h4>
+                            <div class="tour-meta">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 15 Stops</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 16 Audio Assets</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="gallery-item item-2" style="background-image: url('images/image3.jpg');">
-                         <div class="gallery-caption"><h4>The Hearth of the Nation</h4><p>Step back in time in a traditional cottage.</p></div>
+                    <div class="gallery-item item-2">
+                        <div class="gallery-item-bg" style="background-image: url('images/image3.jpg');"></div>
+                        <div class="gallery-caption">
+                            <h4>Cliffs of Moher to Galway</h4>
+                            <div class="tour-meta">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 16 Stops</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg> West Coast</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="gallery-item item-3" style="background-image: url('images/image10.jpg');">
-                         <div class="gallery-caption"><h4>The Verdant Valleys</h4><p>Find beauty in quiet, green corners.</p></div>
+                    <div class="gallery-item item-3">
+                        <div class="gallery-item-bg" style="background-image: url('images/image10.jpg');"></div>
+                        <div class="gallery-caption">
+                            <h4>Slea Head Drive</h4>
+                            <div class="tour-meta">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 12 Stops</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> 45 km</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 72 min</span>
+                            </div>
+                        </div>
                     </div>
-                     <div class="gallery-item item-4" style="background-image: url('images/image6.jpg');">
-                         <div class="gallery-caption"><h4>Lakeside Legends</h4><p>Rest where myths and mountains meet.</p></div>
+                     <div class="gallery-item item-4">
+                        <div class="gallery-item-bg" style="background-image: url('images/image6.jpg');"></div>
+                        <div class="tour-badge">Wild Atlantic Way</div>
+                        <div class="gallery-caption">
+                            <h4>Galway to Cliffs of Moher</h4>
+                            <div class="tour-meta">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 13 Stops</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> 75 km</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 90 min</span>
+                            </div>
+                        </div>
                     </div>
-                     <div class="gallery-item item-5" style="background-image: url('images/image2.jpg');">
-                         <div class="gallery-caption"><h4>The Rhythm of Rural Life</h4><p>Meet the locals of the landscape.</p></div>
+                     <div class="gallery-item item-5">
+                        <div class="gallery-item-bg" style="background-image: url('images/image2.jpg');"></div>
+                        <div class="tour-badge">Wild Atlantic Way</div>
+                        <div class="gallery-caption">
+                            <h4>Skellig Ring</h4>
+                            <div class="tour-meta">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 7 Stops</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 7 Audio Assets</span>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="gallery-item item-6">
+                        <div class="gallery-item-bg" style="background-image: url('images/image1.jpg');"></div>
+                        <div class="gallery-caption">
+                            <h4>And More to Discover...</h4>
+                            <div class="tour-meta">
+                                <span>Over 9 curated tours await.</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
