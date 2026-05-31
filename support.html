@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Support | MacÉireann</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://maceireann.ie/support.html">
+    <meta name="description" content="Support for the MacÉireann app. Contact us by email and we'll help with anything about the app.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0F291E">
+
+    <link rel="icon" href="/images/logo.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+
+    <style>
+        /* --- Universal Styles & Variables --- */
+        :root {
+            --primary-green: #0F291E;
+            --text-light: #f5f5f5;
+            --text-dark: #2C3E35;
+            --accent-color: #E67E22;
+            --background-light: #FDFBF7;
+            --font-heading: 'Lora', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #d67118;
+            text-decoration: underline;
+        }
+
+        /* --- Page Header / Branding --- */
+        .page-header {
+            background: var(--primary-green);
+            color: var(--text-light);
+            padding: calc(20px + env(safe-area-inset-top)) 24px 60px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/image1.jpg') no-repeat center center/cover;
+            opacity: 0.18;
+            z-index: 0;
+        }
+
+        .header-brand {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            text-decoration: none;
+        }
+
+        .header-brand:hover {
+            text-decoration: none;
+        }
+
+        .site-logo {
+            width: 70px;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.35));
+            margin-right: 12px;
+        }
+
+        .brand-name {
+            font-family: 'Uncial Antiqua', serif;
+            font-size: 1.6rem;
+            color: var(--text-light);
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+        }
+
+        .page-header h1 {
+            position: relative;
+            z-index: 1;
+            color: var(--text-light);
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .page-header .subtitle {
+            position: relative;
+            z-index: 1;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        /* --- Support Card --- */
+        .doc-wrapper {
+            flex: 1 0 auto;
+            max-width: 640px;
+            width: 100%;
+            margin: -40px auto 0 auto;
+            padding: 0 20px 80px 20px;
+            padding-left: calc(20px + env(safe-area-inset-left));
+            padding-right: calc(20px + env(safe-area-inset-right));
+        }
+
+        .doc-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(15, 41, 30, 0.08);
+            border: 1px solid rgba(15, 41, 30, 0.05);
+            padding: 55px 50px;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .doc-card h2 {
+            font-size: 1.9rem;
+            margin-bottom: 16px;
+        }
+
+        .doc-card p {
+            margin-bottom: 16px;
+            color: #3a4a42;
+            font-size: 1.1rem;
+        }
+
+        .doc-card p.lead {
+            max-width: 460px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Email Button --- */
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin: 24px 0 8px 0;
+            padding: 18px 36px;
+            background-color: var(--accent-color);
+            color: #fff;
+            border-radius: 10px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.3);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .email-btn:hover {
+            background-color: #d67118;
+            color: #fff;
+            transform: translateY(-2px);
+            text-decoration: none;
+            box-shadow: 0 8px 26px rgba(230, 126, 34, 0.4);
+        }
+
+        .email-btn:active {
+            transform: translateY(1px);
+        }
+
+        .email-btn svg {
+            width: 22px;
+            height: 22px;
+            stroke-width: 1.8;
+        }
+
+        .email-fallback {
+            font-size: 0.95rem;
+            color: #6a7a72;
+            margin-top: 8px;
+        }
+
+        .email-fallback a {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        .response-note {
+            margin-top: 28px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(15, 41, 30, 0.08);
+            font-size: 0.95rem;
+            color: #6a7a72;
+        }
+
+        /* --- Footer --- */
+        footer {
+            flex-shrink: 0;
+            background-color: var(--primary-green);
+            color: #a7b5ae;
+            text-align: center;
+            padding: 30px 20px;
+            padding-bottom: calc(30px + env(safe-area-inset-bottom));
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer .slainte {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        footer a {
+            color: #a7b5ae;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2rem; }
+            .doc-card { padding: 40px 24px; }
+            .brand-name { font-size: 1.3rem; }
+            .site-logo { width: 56px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <a href="/" class="header-brand">
+            <img src="images/logo.png" alt="MacÉireann Logo" class="site-logo" />
+            <span class="brand-name">MacÉireann</span>
+        </a>
+        <h1>Support</h1>
+        <p class="subtitle">We're here to help</p>
+    </header>
+
+    <main class="doc-wrapper">
+        <article class="doc-card">
+            <h2>Need a hand?</h2>
+            <p class="lead">We're happy to help with anything about the MacÉireann app — questions, feedback, account or subscription issues, or anything else.</p>
+
+            <a class="email-btn" href="mailto:info@maceireann.ie?subject=MacÉireann%20App%20Support">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                Email info@maceireann.ie
+            </a>
+
+            <p class="email-fallback">Or write to us directly at <a href="mailto:info@maceireann.ie">info@maceireann.ie</a></p>
+
+            <p class="response-note">We read every message and aim to get back to you as soon as possible.</p>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2026 MacÉireann. All Rights Reserved. &nbsp;·&nbsp; <a href="/">Home</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy</a></p>
+        <p class="slainte">Sláinte!</p>
+    </footer>
+
+</body>
+</html>

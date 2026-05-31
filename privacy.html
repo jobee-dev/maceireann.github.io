@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Privacy Policy | MacÉireann</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://maceireann.ie/privacy.html">
+    <meta name="description" content="Privacy Policy for the MacÉireann app, operated by Yarn Point Tours Ltd.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0F291E">
+
+    <link rel="icon" href="/images/logo.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+
+    <style>
+        /* --- Universal Styles & Variables --- */
+        :root {
+            --primary-green: #0F291E;
+            --text-light: #f5f5f5;
+            --text-dark: #2C3E35;
+            --accent-color: #E67E22;
+            --background-light: #FDFBF7;
+            --font-heading: 'Lora', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            word-break: break-word;
+        }
+
+        a:hover {
+            color: #d67118;
+            text-decoration: underline;
+        }
+
+        /* --- Page Header / Branding --- */
+        .page-header {
+            background: var(--primary-green);
+            color: var(--text-light);
+            padding: calc(20px + env(safe-area-inset-top)) 24px 60px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/image1.jpg') no-repeat center center/cover;
+            opacity: 0.18;
+            z-index: 0;
+        }
+
+        .header-brand {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            text-decoration: none;
+        }
+
+        .header-brand:hover {
+            text-decoration: none;
+        }
+
+        .site-logo {
+            width: 70px;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.35));
+            margin-right: 12px;
+        }
+
+        .brand-name {
+            font-family: 'Uncial Antiqua', serif;
+            font-size: 1.6rem;
+            color: var(--text-light);
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+        }
+
+        .page-header h1 {
+            position: relative;
+            z-index: 1;
+            color: var(--text-light);
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .page-header .subtitle {
+            position: relative;
+            z-index: 1;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        /* --- Document Card --- */
+        .doc-wrapper {
+            max-width: 820px;
+            margin: -40px auto 0 auto;
+            padding: 0 20px 80px 20px;
+            padding-left: calc(20px + env(safe-area-inset-left));
+            padding-right: calc(20px + env(safe-area-inset-right));
+        }
+
+        .doc-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(15, 41, 30, 0.08);
+            border: 1px solid rgba(15, 41, 30, 0.05);
+            padding: 50px 55px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .doc-meta {
+            background: rgba(230, 126, 34, 0.06);
+            border: 1px solid rgba(230, 126, 34, 0.15);
+            border-radius: 10px;
+            padding: 18px 24px;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+        }
+
+        .doc-meta p {
+            margin: 4px 0;
+        }
+
+        .doc-card h2 {
+            font-size: 1.7rem;
+            margin: 48px 0 18px 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(15, 41, 30, 0.08);
+        }
+
+        .doc-card h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .doc-card h3 {
+            font-size: 1.2rem;
+            margin: 28px 0 12px 0;
+            color: var(--text-dark);
+        }
+
+        .doc-card p {
+            margin-bottom: 16px;
+            color: #3a4a42;
+        }
+
+        .doc-card ul {
+            margin: 0 0 16px 0;
+            padding-left: 22px;
+        }
+
+        .doc-card li {
+            margin-bottom: 10px;
+            color: #3a4a42;
+        }
+
+        .doc-card ul ul {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+        .doc-card strong {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        /* --- Tables --- */
+        .table-scroll {
+            overflow-x: auto;
+            margin: 0 0 24px 0;
+            border-radius: 10px;
+            border: 1px solid rgba(15, 41, 30, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(15, 41, 30, 0.08);
+            vertical-align: top;
+        }
+
+        thead th {
+            background: var(--primary-green);
+            color: var(--text-light);
+            font-family: var(--font-heading);
+            font-weight: 600;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:nth-child(even) {
+            background: rgba(15, 41, 30, 0.02);
+        }
+
+        /* Two-column "who we are" style table without header row */
+        table.kv th {
+            background: rgba(15, 41, 30, 0.04);
+            color: var(--primary-green);
+            font-family: var(--font-heading);
+            width: 38%;
+        }
+
+        /* --- Contact block --- */
+        .contact-block {
+            background: var(--primary-green);
+            color: var(--text-light);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-top: 16px;
+        }
+
+        .contact-block strong {
+            color: var(--text-light);
+        }
+
+        .contact-block a {
+            color: #f3b87a;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-green);
+            color: #a7b5ae;
+            text-align: center;
+            padding: 30px 20px;
+            padding-bottom: calc(30px + env(safe-area-inset-bottom));
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer .slainte {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        footer a {
+            color: #a7b5ae;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2rem; }
+            .doc-card { padding: 32px 22px; }
+            .brand-name { font-size: 1.3rem; }
+            .site-logo { width: 56px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <a href="/" class="header-brand">
+            <img src="images/logo.png" alt="MacÉireann Logo" class="site-logo" />
+            <span class="brand-name">MacÉireann</span>
+        </a>
+        <h1>Privacy Policy</h1>
+        <p class="subtitle">MacÉireann</p>
+    </header>
+
+    <main class="doc-wrapper">
+        <article class="doc-card">
+
+            <div class="doc-meta">
+                <p><strong>App:</strong> MacÉireann</p>
+                <p><strong>Last updated:</strong> 31 May 2026</p>
+                <p><strong>Effective date:</strong> 31 May 2026</p>
+            </div>
+
+            <p>MacÉireann ("the App", "we", "us", or "our") is operated by <strong>Yarn Point Tours Ltd</strong> ("the Company"). This Privacy Policy explains what personal information we collect when you use the App, how we use and share it, the choices you have, and how we keep it secure.</p>
+
+            <p>By downloading, accessing, or using the App, you agree to the practices described in this Privacy Policy. If you do not agree, please do not use the App.</p>
+
+            <h2>1. Who we are</h2>
+            <div class="table-scroll">
+                <table class="kv">
+                    <tbody>
+                        <tr>
+                            <th>Data controller</th>
+                            <td>Yarn Point Tours Ltd</td>
+                        </tr>
+                        <tr>
+                            <th>App</th>
+                            <td>MacÉireann (iOS and Android)</td>
+                        </tr>
+                        <tr>
+                            <th>Contact email</th>
+                            <td><a href="mailto:info@maceireann.ie">info@maceireann.ie</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>If you are in the European Economic Area (EEA), the United Kingdom, or another region with data-protection laws, the Company acts as the "data controller" of your personal data.</p>
+
+            <h2>2. Summary</h2>
+            <ul>
+                <li>The App provides <strong>self-guided audio driving tours of Ireland</strong>, with <strong>GPS location triggering</strong> of tour audio and <strong>turn-by-turn navigation</strong>.</li>
+                <li>We collect the information you provide when you <strong>create an account</strong> (e.g. email address) and complete <strong>onboarding</strong> (e.g. display name and your preferred/home airport).</li>
+                <li>We use your <strong>device location</strong>, including in the background while a tour is active, to play the right audio at the right place and to provide navigation.</li>
+                <li>We use trusted third-party providers — <strong>Supabase</strong> (accounts and data storage), <strong>RevenueCat</strong> (subscriptions and purchases), <strong>Mapbox</strong> (maps and navigation), and the <strong>Apple App Store / Google Play</strong> (purchases) — to operate the App.</li>
+                <li>We <strong>do not sell</strong> your personal information.</li>
+            </ul>
+
+            <h2>3. Information we collect</h2>
+
+            <h3>3.1 Information you provide</h3>
+            <ul>
+                <li><strong>Account information.</strong> When you sign up or sign in, we collect your <strong>email address</strong> and authentication credentials (managed securely by our authentication provider, Supabase).</li>
+                <li><strong>Profile / onboarding information.</strong> During onboarding you may provide a <strong>display name</strong> and your <strong>preferred or home airport</strong>, and set tour preferences (e.g. traveler type and topics of interest). This helps us personalize tour recommendations.</li>
+                <li><strong>Reviews and support communications.</strong> If you submit a tour review or contact us (e.g. by email), we collect the information you choose to share, such as an author name and review text.</li>
+            </ul>
+
+            <h3>3.2 Information collected automatically</h3>
+            <ul>
+                <li><strong>Location data.</strong> With your permission, the App accesses your device's <strong>precise GPS location</strong>. Location is used to:
+                    <ul>
+                        <li>automatically trigger tour audio as you approach points of interest;</li>
+                        <li>provide <strong>turn-by-turn navigation</strong> along tour routes; and</li>
+                        <li>show your position on the map.</li>
+                    </ul>
+                    <p>The App requests <strong>"while using" and "always/background" location access</strong> so that audio and navigation continue to work while the App is in the background and your screen is off during a drive. You can change or revoke location permission at any time in your device settings (see Section 8).</p>
+                </li>
+                <li><strong>Purchase and subscription data.</strong> When you buy a subscription or unlock tours, our purchases provider (<strong>RevenueCat</strong>) and the relevant app store process the transaction and provide us with information about your <strong>entitlements and subscription status</strong>. We do <strong>not</strong> receive or store your full payment-card details — these are handled by Apple or Google.</li>
+                <li><strong>Device and technical information.</strong> To operate, secure, and troubleshoot the App, we may collect technical information such as <strong>device model, operating system version, app version, language/region, and a unique app/device identifier</strong>.</li>
+                <li><strong>App activity.</strong> We may collect limited information about how you use the App, such as which tours you start, download, or complete, to improve the experience.</li>
+            </ul>
+
+            <h3>3.3 Information stored on your device</h3>
+            <p>Some data — such as your authentication session, downloaded/offline tour content, and app preferences — is stored <strong>locally on your device</strong> (using secure on-device storage). This data stays on your device unless it needs to sync with our services.</p>
+
+            <h2>4. How we use your information</h2>
+            <p>We use your information to:</p>
+            <ul>
+                <li>create and manage your account and authenticate you;</li>
+                <li>deliver the core features of the App — playing <strong>location-triggered audio</strong>, providing <strong>navigation</strong>, and showing maps;</li>
+                <li>personalize tour recommendations based on your preferences (e.g. home airport);</li>
+                <li>process and validate <strong>subscriptions and purchases</strong> and grant the corresponding access;</li>
+                <li>provide customer support and respond to your enquiries;</li>
+                <li>maintain the security, reliability, and performance of the App, including diagnosing and fixing problems; and</li>
+                <li>comply with our legal obligations.</li>
+            </ul>
+
+            <h2>5. Legal bases for processing (EEA / UK users)</h2>
+            <p>Where the GDPR (or UK GDPR) applies, we rely on the following legal bases:</p>
+            <ul>
+                <li><strong>Performance of a contract</strong> — to provide the App and the features you request (e.g. accounts, navigation, audio, purchases).</li>
+                <li><strong>Consent</strong> — for access to your <strong>device location</strong>, which you grant through the operating system permission prompt. You may withdraw this consent at any time.</li>
+                <li><strong>Legitimate interests</strong> — to secure, maintain, and improve the App, where these interests are not overridden by your rights.</li>
+                <li><strong>Legal obligation</strong> — where we must process data to comply with the law.</li>
+            </ul>
+
+            <h2>6. How we share your information</h2>
+            <p>We share personal information only as described below. <strong>We do not sell your personal information.</strong></p>
+
+            <h3>6.1 Service providers (processors)</h3>
+            <p>We use the following third-party services to operate the App. Each receives only the information needed to perform its function and is required to protect it:</p>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Purpose</th>
+                            <th>What they process</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Supabase</strong></td>
+                            <td>Accounts, authentication, and backend data storage</td>
+                            <td>Email, authentication data, profile/onboarding data</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RevenueCat</strong></td>
+                            <td>Subscription and in-app purchase management</td>
+                            <td>Purchase/entitlement data, app user identifier, device identifiers</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mapbox</strong></td>
+                            <td>Maps, routing, and turn-by-turn navigation</td>
+                            <td>Location/route data needed to render maps and directions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Apple App Store / Google Play</strong></td>
+                            <td>Payment processing and app distribution</td>
+                            <td>Payment and transaction data (handled directly by the store)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Expo / EAS</strong></td>
+                            <td>App build and delivery infrastructure</td>
+                            <td>Technical/diagnostic data</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>These providers process data under their own privacy policies. We encourage you to review them:</p>
+            <ul>
+                <li>Supabase — <a href="https://supabase.com/privacy" target="_blank" rel="noopener">https://supabase.com/privacy</a></li>
+                <li>RevenueCat — <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">https://www.revenuecat.com/privacy</a></li>
+                <li>Mapbox — <a href="https://www.mapbox.com/legal/privacy" target="_blank" rel="noopener">https://www.mapbox.com/legal/privacy</a></li>
+                <li>Apple — <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">https://www.apple.com/legal/privacy/</a></li>
+                <li>Google — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></li>
+                <li>Expo — <a href="https://expo.dev/privacy" target="_blank" rel="noopener">https://expo.dev/privacy</a></li>
+            </ul>
+
+            <h3>6.2 Legal and safety</h3>
+            <p>We may disclose information if required to do so by law, regulation, legal process, or governmental request, or where necessary to protect the rights, property, or safety of the Company, our users, or the public.</p>
+
+            <h3>6.3 Business transfers</h3>
+            <p>If the Company is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will notify you of any such change in ownership of your personal data.</p>
+
+            <h2>7. International data transfers</h2>
+            <p>Some of our service providers are located outside your country, including in the United States. Where personal data is transferred outside the EEA or UK, we rely on appropriate safeguards (such as the European Commission's Standard Contractual Clauses) to protect your information in accordance with applicable law.</p>
+
+            <h2>8. Your choices and rights</h2>
+
+            <h3>8.1 Location permission</h3>
+            <p>You can grant, limit, or revoke the App's access to your location at any time through your device settings:</p>
+            <ul>
+                <li><strong>iOS:</strong> Settings → Privacy &amp; Security → Location Services → MacÉireann</li>
+                <li><strong>Android:</strong> Settings → Apps → MacÉireann → Permissions → Location</li>
+            </ul>
+            <p>Note that disabling location will prevent location-triggered audio and navigation from working.</p>
+
+            <h3>8.2 Your data-protection rights</h3>
+            <p>Depending on where you live, you may have the right to:</p>
+            <ul>
+                <li><strong>access</strong> the personal data we hold about you;</li>
+                <li><strong>correct</strong> inaccurate or incomplete data;</li>
+                <li><strong>delete</strong> your data ("right to erasure");</li>
+                <li><strong>restrict</strong> or <strong>object</strong> to certain processing;</li>
+                <li>request <strong>portability</strong> of your data; and</li>
+                <li><strong>withdraw consent</strong> where processing is based on consent.</li>
+            </ul>
+            <p>To exercise any of these rights, email us at <strong><a href="mailto:info@maceireann.ie">info@maceireann.ie</a></strong>. We will respond within the timeframe required by applicable law. You also have the right to lodge a complaint with your local data-protection authority — in Ireland, the <strong>Data Protection Commission</strong> (<a href="https://www.dataprotection.ie" target="_blank" rel="noopener">https://www.dataprotection.ie</a>).</p>
+
+            <h3>8.3 Deleting your account</h3>
+            <p>You can request deletion of your account and associated personal data by emailing <strong><a href="mailto:info@maceireann.ie">info@maceireann.ie</a></strong>. Some information may be retained where required for legal, accounting, or fraud-prevention purposes (see Section 9).</p>
+
+            <h2>9. Data retention</h2>
+            <p>We keep personal data only for as long as necessary for the purposes described in this policy:</p>
+            <ul>
+                <li><strong>Account and profile data</strong> — for as long as your account is active, and then deleted or anonymized within a reasonable period after account closure.</li>
+                <li><strong>Purchase records</strong> — retained as required for tax, accounting, and legal compliance.</li>
+                <li><strong>Location data</strong> — used in real time to provide the tour and navigation features and is <strong>not retained as a long-term location history</strong> by the App beyond what is needed to operate these features.</li>
+            </ul>
+
+            <h2>10. Security</h2>
+            <p>We take reasonable technical and organizational measures to protect your information, including encryption in transit, secure on-device storage of sensitive data such as authentication sessions, and access controls. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+
+            <h2>11. Children's privacy</h2>
+            <p>The App is not directed to children under the age of 13 (or the equivalent minimum age in your jurisdiction), and we do not knowingly collect personal data from children. If you believe a child has provided us with personal data, please contact us at <strong><a href="mailto:info@maceireann.ie">info@maceireann.ie</a></strong> and we will take steps to delete it.</p>
+
+            <h2>12. Third-party links and services</h2>
+            <p>The App may contain links to or integrate with third-party services (for example, opening an external maps application for directions). This Privacy Policy does not apply to those third parties, and we are not responsible for their privacy practices. Please review their policies separately.</p>
+
+            <h2>13. Changes to this Privacy Policy</h2>
+            <p>We may update this Privacy Policy from time to time. When we make material changes, we will update the "Last updated" date above and, where appropriate, notify you within the App. Your continued use of the App after changes take effect constitutes acceptance of the revised policy.</p>
+
+            <h2>14. Contact us</h2>
+            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact:</p>
+            <div class="contact-block">
+                <p><strong>Yarn Point Tours Ltd</strong></p>
+                <p>Email: <strong><a href="mailto:info@maceireann.ie">info@maceireann.ie</a></strong></p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 MacÉireann. All Rights Reserved. &nbsp;·&nbsp; <a href="/">Home</a></p>
+            <p class="slainte">Sláinte!</p>
+        </div>
+    </footer>
+
+</body>
+</html>
