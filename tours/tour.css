@@ -1,0 +1,427 @@
+/* ===================================================================
+   MacÉireann — shared tour-page styles
+   Used by every page in /tours/. Duplicate a tour .html file and
+   swap the content; styling and layout come from here.
+   =================================================================== */
+
+:root {
+    --primary-green: #0F291E;
+    --text-light: #f5f5f5;
+    --text-dark: #2C3E35;
+    --accent-color: #E67E22;
+    --background-light: #FDFBF7;
+    --font-heading: 'Lora', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+a { color: var(--accent-color); }
+
+.container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* --- Top navigation bar --- */
+.tour-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(15, 41, 30, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: calc(10px + env(safe-area-inset-top)) 24px 10px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tour-nav a.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.tour-nav img { width: 40px; height: auto; }
+
+.tour-nav .brand-name {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1.4rem;
+    color: var(--text-light);
+    letter-spacing: 1px;
+}
+
+.tour-nav .nav-cta {
+    background: var(--accent-color);
+    color: #fff;
+    text-decoration: none;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.tour-nav .nav-cta:hover { background: #d67118; }
+
+/* --- Breadcrumb --- */
+.breadcrumb {
+    font-size: 0.85rem;
+    color: #7d8a83;
+    padding: 16px 0 0 0;
+}
+.breadcrumb a { color: #7d8a83; text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent-color); }
+
+/* --- Hero --- */
+.tour-hero {
+    position: relative;
+    min-height: 62vh;
+    display: flex;
+    align-items: flex-end;
+    color: var(--text-light);
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.tour-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 41, 30, 0.92) 0%, rgba(15, 41, 30, 0.35) 55%, rgba(15, 41, 30, 0.45) 100%);
+    z-index: 1;
+}
+
+.tour-hero .hero-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding-bottom: 36px;
+}
+
+.tour-region {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+
+.tour-hero h1 {
+    color: var(--text-light);
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin-bottom: 14px;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.5);
+}
+
+.tour-hero .tagline {
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 620px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* --- Stat bar --- */
+.tour-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+.tour-stats .container { display: flex; flex-wrap: wrap; gap: 32px; }
+.tour-stat { display: flex; align-items: center; gap: 10px; }
+.tour-stat svg { color: var(--accent-color); flex-shrink: 0; }
+.tour-stat .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: #8a958f; }
+.tour-stat .value { font-size: 1.05rem; font-weight: 600; color: var(--primary-green); }
+
+/* --- Body content --- */
+.tour-body { padding: 56px 0; }
+.tour-body h2 {
+    font-size: 2rem;
+    margin: 8px 0 18px 0;
+}
+.tour-body h3 { font-size: 1.3rem; margin: 32px 0 8px 0; }
+.tour-body p { font-size: 1.08rem; margin-bottom: 18px; color: #3a463f; }
+.tour-body .lead { font-size: 1.2rem; color: var(--text-dark); }
+
+/* --- Audio sample lever --- */
+.audio-sample {
+    background: var(--primary-green);
+    color: var(--text-light);
+    border-radius: 14px;
+    padding: 28px 30px;
+    margin: 36px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.audio-sample .play-btn {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent-color);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+.audio-sample .play-btn:hover { transform: scale(1.06); background: #d67118; }
+.audio-sample h4 { color: var(--text-light); font-size: 1.15rem; margin-bottom: 2px; }
+.audio-sample p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin: 0; }
+
+/* --- Stops list --- */
+.stops { list-style: none; counter-reset: stop; margin: 8px 0 12px 0; }
+.stops li {
+    position: relative;
+    padding: 0 0 22px 52px;
+    border-left: 2px solid #e3e0d8;
+    margin-left: 16px;
+}
+.stops li:last-child { border-left-color: transparent; padding-bottom: 0; }
+.stops li::before {
+    counter-increment: stop;
+    content: counter(stop);
+    position: absolute;
+    left: -17px;
+    top: -2px;
+    width: 32px;
+    height: 32px;
+    background: var(--accent-color);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+}
+.stops li h3 { margin: 0 0 4px 0; font-size: 1.15rem; }
+.stops li p { margin: 0; font-size: 1rem; color: #4a564f; }
+
+/* --- Story snippet (the demo) --- */
+.story-snippet {
+    background: #fff;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 0 12px 12px 0;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+.story-snippet .eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.story-snippet p {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+/* --- Inline CTA block --- */
+.tour-cta {
+    background: linear-gradient(135deg, #133124, #0F291E);
+    color: var(--text-light);
+    text-align: center;
+    border-radius: 16px;
+    padding: 48px 32px;
+    margin: 48px 0 8px 0;
+}
+.tour-cta h2 { color: var(--text-light); font-size: 2rem; margin-bottom: 12px; }
+.tour-cta p { color: rgba(255,255,255,0.82); max-width: 520px; margin: 0 auto 24px auto; }
+
+.waitlist-form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.waitlist-form input[type="email"] {
+    padding: 15px 22px;
+    font-size: 1.02rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    width: 320px;
+    max-width: 100%;
+    font-family: var(--font-body);
+    background: rgba(255,255,255,0.12);
+    color: var(--text-light);
+    outline: none;
+}
+.waitlist-form input::placeholder { color: rgba(255,255,255,0.7); }
+.waitlist-form button {
+    padding: 15px 32px;
+    font-size: 0.95rem;
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+.waitlist-form button:hover { background: #d67118; transform: translateY(-2px); }
+.signup-msg { margin-top: 14px; font-weight: 500; }
+.signup-msg.hidden { display: none; }
+.signup-msg.success { color: #bfe6c3; }
+.signup-msg.error { color: #ffc2c2; }
+
+/* --- Related tours --- */
+.related { padding: 8px 0 8px 0; }
+.related h2 { font-size: 1.6rem; margin-bottom: 20px; }
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+.related-card {
+    display: block;
+    position: relative;
+    height: 160px;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    background-size: cover;
+    background-position: center;
+}
+.related-card span {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 14px 16px;
+    background: linear-gradient(to top, rgba(15,41,30,0.92), rgba(15,41,30,0));
+    color: var(--text-light);
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-green);
+    color: #a7b5ae;
+    text-align: center;
+    padding: 34px 20px;
+    padding-bottom: calc(34px + env(safe-area-inset-bottom));
+    margin-top: 56px;
+}
+footer a { color: #cdd8d2; text-decoration: none; }
+footer a:hover { color: var(--text-light); }
+footer .links { margin-bottom: 10px; }
+footer .links a { margin: 0 10px; font-size: 0.9rem; }
+footer .slainte {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--text-light);
+    margin-top: 6px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 720px) {
+    .tour-hero h1 { font-size: 2.3rem; }
+    .tour-hero { min-height: 56vh; }
+    .related-grid { grid-template-columns: 1fr; }
+    .audio-sample { flex-direction: row; }
+    .waitlist-form input[type="email"], .waitlist-form button { width: 100%; max-width: 340px; }
+    .tour-nav .brand-name { font-size: 1.2rem; }
+}
+
+/* ===================================================================
+   App-live additions: download button, tour variants, sample link
+   =================================================================== */
+
+/* App Store download button — themed "parchment" style */
+.app-store-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--background-light);
+    color: var(--primary-green);
+    text-decoration: none;
+    padding: 11px 22px;
+    border-radius: 10px;
+    border: 1px solid rgba(15, 41, 30, 0.14);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    transition: transform .2s ease, box-shadow .3s ease, background .3s ease;
+}
+.app-store-btn:hover {
+    transform: translateY(-2px);
+    background: #fff;
+    color: var(--primary-green);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
+}
+.app-store-btn svg { flex-shrink: 0; color: var(--primary-green); }
+.app-store-btn .ass-text { display: flex; flex-direction: column; line-height: 1.05; text-align: left; }
+.app-store-btn .ass-text small { font-size: .62rem; text-transform: uppercase; letter-spacing: .5px; opacity: .72; }
+.app-store-btn .ass-text strong { font-size: 1.12rem; font-weight: 600; font-family: var(--font-body); }
+.tour-nav .app-store-btn { padding: 7px 14px; }
+.tour-nav .app-store-btn .ass-text strong { font-size: 1rem; }
+
+/* Download CTA block layout */
+.cta-secondary { margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.12); }
+.cta-secondary p { font-size: .95rem; margin-bottom: 14px; }
+
+/* Audio sample as a link into the app */
+a.audio-sample { text-decoration: none; cursor: pointer; }
+a.audio-sample:hover { background: #143626; }
+a.audio-sample .play-btn { pointer-events: none; }
+
+/* "Available in the app" variants */
+.variants { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 16px 0 8px 0; }
+.variant {
+    border: 1px solid #e7e3da;
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+}
+.variant h3 { margin: 0; font-size: 1.05rem; }
+.variant .variant-meta { font-size: .85rem; font-weight: 600; color: var(--accent-color); white-space: nowrap; }
+.variants-note { font-size: .95rem; color: #6b766f; margin-top: 14px; }
+@media (max-width: 720px) { .variants { grid-template-columns: 1fr; } }

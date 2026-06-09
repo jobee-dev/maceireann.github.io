@@ -17,7 +17,7 @@
     <meta name="theme-color" content="#1a3c2a">
 
     <meta property="og:title" content="MacÉireann | Your Irish Storyteller">
-    <meta property="og:description" content="Drive Ireland with an audio-guided storyteller. Hear legends, history and local lore as you go. Join the waitlist for early access.">
+    <meta property="og:description" content="Drive Ireland with an audio-guided storyteller. Hear legends, history and local lore as you go. Download now on the App Store.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://maceireann.ie/">
     <meta property="og:image" content="https://maceireann.ie/images/image1.jpg">
@@ -27,7 +27,7 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MacÉireann | Your Irish Storyteller">
-    <meta name="twitter:description" content="Drive Ireland with an audio-guided storyteller. Hear legends, history and local lore as you go.">
+    <meta name="twitter:description" content="Drive Ireland with an audio-guided storyteller. Hear legends, history and local lore as you go. Download on the App Store.">
     <meta name="twitter:image" content="https://maceireann.ie/images/image1.jpg">
     <meta name="twitter:image:alt" content="Scenic Irish road with dramatic coastline.">
 
@@ -55,6 +55,16 @@
           "name": "MacÉireann",
           "publisher": { "@id": "https://maceireann.ie/#organization" },
           "inLanguage": "en-IE"
+        },
+        {
+          "@type": "MobileApplication",
+          "@id": "https://maceireann.ie/#app",
+          "name": "MacÉireann — Ireland Tour Guide",
+          "operatingSystem": "iOS",
+          "applicationCategory": "TravelApplication",
+          "url": "https://apps.apple.com/app/id6774573617",
+          "downloadUrl": "https://apps.apple.com/app/id6774573617",
+          "publisher": { "@id": "https://maceireann.ie/#organization" }
         }
       ]
     }
@@ -488,6 +498,8 @@
 
         .gallery-item {
             position: relative;
+            text-decoration: none;
+            color: var(--text-light);
             background-size: cover;
             background-position: center;
             border-radius: 12px;
@@ -692,7 +704,65 @@
             /* Pull the section background up so it fills the space behind the notch */
             margin-top: calc(env(safe-area-inset-top) * -1);
         }
+
+        /* --- App Store download button (app is live) — themed "parchment" style --- */
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--background-light);
+            color: var(--primary-green);
+            text-decoration: none;
+            padding: 13px 26px;
+            border-radius: 12px;
+            border: 1px solid rgba(15, 41, 30, 0.14);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+            transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+        .app-store-btn:hover { transform: translateY(-2px); background: #fff; color: var(--primary-green); box-shadow: 0 12px 30px rgba(0,0,0,0.32); }
+        .app-store-btn svg { flex-shrink: 0; color: var(--primary-green); }
+        .app-store-btn .ass-text { display: flex; flex-direction: column; line-height: 1.05; text-align: left; }
+        .app-store-btn .ass-text small { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.72; }
+        .app-store-btn .ass-text strong { font-size: 1.2rem; font-weight: 600; font-family: var(--font-body); }
+
+        .hero-cta { display: flex; align-items: center; justify-content: center; gap: 22px; flex-wrap: wrap; margin-top: 8px; }
+        .hero-cta .secondary-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+            padding-bottom: 2px;
+            transition: opacity 0.2s ease;
+        }
+        .hero-cta .secondary-link:hover { opacity: 0.8; }
+
+        .view-all-wrap { text-align: center; margin-top: 50px; }
+        .view-all-btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .view-all-btn:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+        .cta-download { display: flex; justify-content: center; margin-bottom: 8px; }
+        .cta-secondary {
+            margin: 30px auto 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            max-width: 560px;
+        }
+        .cta-secondary > p { margin-bottom: 16px; font-size: 0.98rem; }
     </style>
+    <script defer src="/analytics.js"></script>
 </head>
 <body>
 
@@ -703,13 +773,15 @@
             <span class="brand-name">MacÉireann</span>
         </div>
         <div class="hero-content container">
-            <h1>Don't Just See Ireland. Hear It's Soul.</h1>
-            <p>The road is calling. MacÉireann puts a traditional Irish storyteller in your pocket, guiding you with turn-by-turn navigation and unforgettable tales of the land. The ultimate audio-guided driving tour app is coming soon.</p>
-            <form id="hero-signup" class="waitlist-form">
-                <input type="email" id="hero-email" placeholder="Enter your email" required>
-                <button type="submit">Be The First To Wander</button>
-            </form>
-            <p id="hero-msg" class="signup-msg hidden"></p>
+            <h1>Don't Just See Ireland. Hear Its Soul.</h1>
+            <p>The road is calling. MacÉireann puts a traditional Irish storyteller in your pocket — turn-by-turn sat-nav guidance paired with unforgettable tales of the land. Now live on the App Store.</p>
+            <div class="hero-cta">
+                <a class="app-store-btn" href="https://apps.apple.com/app/id6774573617" aria-label="Download MacÉireann on the App Store">
+                    <svg viewBox="0 0 384 512" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                    <span class="ass-text"><small>Download on the</small><strong>App Store</strong></span>
+                </a>
+                <a class="secondary-link" href="/tours/">Browse the tours →</a>
+            </div>
         </div>
     </header>
 
@@ -721,7 +793,7 @@
                 <div class="contrast-grid">
                     <div class="contrast-column">
                         <div class="contrast-image-wrapper">
-                            <img src="newimages/doolin.jpg" alt="A colorful village street in Doolin with traditional thatched cottages and red flowers in the foreground.">
+                            <img src="newimages/doolin.webp" alt="A colorful village street in Doolin with traditional thatched cottages and red flowers in the foreground.">
                         </div>
                         <div class="contrast-card">
                             <p>Tired of big bus schedules and guidebooks that only scratch the surface? Ever driven past an ancient ruin and wished you knew its story?</p>
@@ -771,72 +843,77 @@
         <section id="gallery">
             <div class="container">
                 <h2>Featured Journeys</h2>
-                <p>Preview some of the incredible routes currently available on the MacÉireann app.</p>
+                <p>Explore some of the routes available now in the MacÉireann app — tap any tour to read the stories behind it.</p>
                 <div class="gallery-grid">
-                    <div class="gallery-item item-1">
-                        <div class="gallery-item-bg" style="background-image: url('newimages/ringofkerry.png');"></div>
+                    <a href="/tours/ring-of-kerry.html" class="gallery-item item-1">
+                        <div class="gallery-item-bg" style="background-image: url('newimages/ringofkerry.webp');"></div>
                         <div class="tour-badge">Wild Atlantic Way</div>
                         <div class="gallery-caption">
                             <h4>Ring of Kerry</h4>
                             <div class="tour-meta">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 15 Stops</span>
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 16 Audio Assets</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 94–180 min</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg> North &amp; South</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="gallery-item item-2">
-                        <div class="gallery-item-bg" style="background-image: url('newimages/CliffsofMoherMisty.JPG');"></div>
-                        <div class="gallery-caption">
-                            <h4>Cliffs of Moher to Galway</h4>
-                            <div class="tour-meta">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 16 Stops</span>
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg> West Coast</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item item-3">
-                        <div class="gallery-item-bg" style="background-image: url('newimages/Sleahead Giant.jpg');"></div>
+                    </a>
+                    <a href="/tours/slea-head-drive.html" class="gallery-item item-2">
+                        <div class="gallery-item-bg" style="background-image: url('newimages/slea-head.webp');"></div>
+                        <div class="tour-badge">Wild Atlantic Way</div>
                         <div class="gallery-caption">
                             <h4>Slea Head Drive</h4>
                             <div class="tour-meta">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 12 Stops</span>
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> 45 km</span>
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 72 min</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 120–180 min</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> Full &amp; Fastrack</span>
                             </div>
                         </div>
-                    </div>
-                     <div class="gallery-item item-4">
-                        <div class="gallery-item-bg" style="background-image: url('newimages/Burrenplants.png');"></div>
-                        <div class="tour-badge">Wild Atlantic Way</div>
-                        <div class="gallery-caption">
-                            <h4>Galway to Cliffs of Moher</h4>
-                            <div class="tour-meta">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 13 Stops</span>
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> 75 km</span>
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 90 min</span>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="gallery-item item-5">
-                        <div class="gallery-item-bg" style="background-image: url('newimages/Road signs.png');"></div>
+                    </a>
+                    <a href="/tours/skellig-ring.html" class="gallery-item item-3">
+                        <div class="gallery-item-bg" style="background-image: url('newimages/road-signs.webp');"></div>
                         <div class="tour-badge">Wild Atlantic Way</div>
                         <div class="gallery-caption">
                             <h4>Skellig Ring</h4>
                             <div class="tour-meta">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 7 Stops</span>
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 7 Audio Assets</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 40 min</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg> North &amp; South</span>
                             </div>
                         </div>
-                    </div>
-                     <div class="gallery-item item-6">
-                        <div class="gallery-item-bg" style="background-image: url('newimages/discover.png');"></div>
+                    </a>
+                     <a href="/tours/dublin-to-galway.html" class="gallery-item item-4">
+                        <div class="gallery-item-bg" style="background-image: url('images/image7.jpg');"></div>
+                        <div class="tour-badge">Leinster · Connacht</div>
                         <div class="gallery-caption">
-                            <h4>And More to Discover...</h4>
+                            <h4>Dublin to Galway</h4>
                             <div class="tour-meta">
-                                <span>Over 9 curated tours await.</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 120 min</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> 191 km</span>
                             </div>
                         </div>
-                    </div>
+                    </a>
+                     <a href="/tours/cliffs-of-moher-to-galway.html" class="gallery-item item-5">
+                        <div class="gallery-item-bg" style="background-image: url('newimages/cliffs-of-moher.webp');"></div>
+                        <div class="tour-badge">Wild Atlantic Way</div>
+                        <div class="gallery-caption">
+                            <h4>Cliffs of Moher to Galway</h4>
+                            <div class="tour-meta">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 80 min</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg> Northbound</span>
+                            </div>
+                        </div>
+                    </a>
+                     <a href="/tours/galway-to-cliffs-of-moher.html" class="gallery-item item-6">
+                        <div class="gallery-item-bg" style="background-image: url('newimages/burren.webp');"></div>
+                        <div class="tour-badge">Wild Atlantic Way</div>
+                        <div class="gallery-caption">
+                            <h4>Galway to Cliffs of Moher</h4>
+                            <div class="tour-meta">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 80 min</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> 78 km</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="view-all-wrap">
+                    <a class="view-all-btn" href="/tours/">View all tours →</a>
                 </div>
             </div>
         </section>
@@ -845,12 +922,21 @@
             <div class="hero-overlay"></div>
             <div class="hero-content container">
                 <h2>Your Irish adventure is waiting.</h2>
-                <p>The stories are ready. The roads are clear. All that's missing is you. Sign up to the MacÉireann waitlist and we'll notify you the second the app is launched. You'll get early access and an exclusive founder's discount for being one of our first.</p>
-                <form id="cta-signup" class="waitlist-form">
-                    <input type="email" id="cta-email" placeholder="Enter your email" required>
-                    <button type="submit">Be The First To Wander</button>
-                </form>
-                <p id="cta-msg" class="signup-msg hidden"></p>
+                <p>The stories are ready. The roads are clear. All that's missing is you. Download MacÉireann and drive Ireland with a storyteller riding shotgun.</p>
+                <div class="cta-download">
+                    <a class="app-store-btn" href="https://apps.apple.com/app/id6774573617" aria-label="Download MacÉireann on the App Store">
+                        <svg viewBox="0 0 384 512" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                        <span class="ass-text"><small>Download on the</small><strong>App Store</strong></span>
+                    </a>
+                </div>
+                <div class="cta-secondary">
+                    <p>Not travelling yet? Get trip-planning tips and new-tour news by email.</p>
+                    <form id="cta-signup" class="waitlist-form">
+                        <input type="email" id="cta-email" placeholder="Enter your email" required>
+                        <button type="submit">Keep Me Posted</button>
+                    </form>
+                    <p id="cta-msg" class="signup-msg hidden"></p>
+                </div>
             </div>
         </section>
     </main>
@@ -881,10 +967,11 @@
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({ email })
+                        body: JSON.stringify({ email, source: 'homepage' })
                     });
 
                     if (response.ok) {
+                        if (window.gtag) gtag('event', 'newsletter_signup', { source: 'homepage' });
                         form.innerHTML = '<p class="signup-msg success">Sláinte! You\'re on the list.</p>';
                     } else {
                         const errorData = await response.json().catch(() => ({ error: 'Something went wrong' }));
@@ -902,7 +989,6 @@
 
         // Initialize both forms
         document.addEventListener('DOMContentLoaded', function() {
-            handleSignup('hero-signup', 'hero-email', 'hero-msg');
             handleSignup('cta-signup', 'cta-email', 'cta-msg');
 
             // Show the brand only after scrolling past hero
