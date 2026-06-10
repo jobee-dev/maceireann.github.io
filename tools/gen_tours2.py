@@ -5,6 +5,7 @@ Edit the TOURS data below (not the generated .html) and re-run so every
 tour page stays consistent. Styling lives in tours/tour.css.
 """
 import html
+import json
 
 APP_URL = "https://apps.apple.com/app/id6774573617"
 
@@ -49,10 +50,13 @@ TPL = '''<!DOCTYPE html>
     <meta property="og:description" content="{ogdesc}">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://maceireann.ie/tours/{slug}.html">
-    <meta property="og:image" content="https://maceireann.ie{img}">
+    <meta property="og:image" content="https://maceireann.ie{ogimg}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="MacÉireann">
     <meta property="og:locale" content="en_IE">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://maceireann.ie{ogimg}">
 
     <link rel="icon" href="/images/logo.png" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="/images/logo.png">
@@ -64,7 +68,7 @@ TPL = '''<!DOCTYPE html>
       "name": "{h1} Audio Driving Tour",
       "description": "{meta}",
       "url": "https://maceireann.ie/tours/{slug}.html",
-      "image": "https://maceireann.ie{img}",
+      "image": "https://maceireann.ie{ogimg}",
       "provider": {{ "@type": "Organization", "name": "MacÉireann", "url": "https://maceireann.ie/" }},
       "offers": {{ "@type": "Offer", "url": "{app_url}", "category": "MobileApplication" }},
       "itinerary": {{ "@type": "ItemList", "itemListElement": [{itinerary}] }}
@@ -81,7 +85,7 @@ TPL = '''<!DOCTYPE html>
       ]
     }}
     </script>
-    <script defer src="/analytics.js"></script>
+{faq_schema}    <script defer src="/analytics.js"></script>
 </head>
 <body>
 
@@ -139,7 +143,7 @@ TPL = '''<!DOCTYPE html>
             <div class="variants">{variants_html}</div>
             {variants_note}
 
-            <div class="tour-cta" id="get-the-app">
+{faq_block}            <div class="tour-cta" id="get-the-app">
                 <h2>Drive {h1} with its stories</h2>
                 <p>MacÉireann is live on the App Store. Download it, choose {h1}, and let a traditional storyteller ride shotgun &mdash; turn by turn, hands on the wheel.</p>
                 {app_badge}
@@ -180,6 +184,21 @@ TPL = '''<!DOCTYPE html>
 '''
 
 def build(t):
+    ogimg = '/newimages/og/' + t['slug'] + '-og.jpg'
+    faqs = FAQS.get(t['slug'], [])
+    if faqs:
+        faq_items = ''.join(
+            '\n                <div class="faq-item"><h3>' + html.escape(q) + '</h3><p>' + html.escape(a) + '</p></div>'
+            for q, a in faqs) + '\n            '
+        faq_block = ('            <h2>Common questions</h2>\n            <div class="faq">'
+                     + faq_items + '</div>\n\n')
+        faq_data = {"@context": "https://schema.org", "@type": "FAQPage",
+                    "mainEntity": [{"@type": "Question", "name": q,
+                                    "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
+        faq_schema = '    <script type="application/ld+json">\n    ' + json.dumps(faq_data, ensure_ascii=False) + '\n    </script>\n'
+    else:
+        faq_block = ''
+        faq_schema = ''
     stops_html = ''.join(
         f'\n                <li><h3>{html.escape(s[0])}</h3><p>{html.escape(s[1])}</p></li>'
         for s in t['stops']) + '\n            '
@@ -200,7 +219,7 @@ def build(t):
         svg_dur=svg('dur'), svg_dist=svg('dist'), svg_dir=svg('dir'), svg_pin=svg('pin'),
         stops_html=stops_html, itinerary=itinerary,
         variants_html=variants_html, variants_note=variants_note,
-        related_html=related_html, **data)
+        related_html=related_html, ogimg=ogimg, faq_schema=faq_schema, faq_block=faq_block, **data)
     with open(f"tours/{t['slug']}.html", 'w') as f:
         f.write(out)
     print(f"wrote tours/{t['slug']}.html ({len(t['stops'])} stops, {len(t['variants'])} variants)")
@@ -423,6 +442,8 @@ TOURS = [
              ('ring-of-kerry','Ring of Kerry','/newimages/ringofkerry.webp')],
  },
 ]
+
+FAQS = {'ring-of-kerry': [('How long does it take to drive the Ring of Kerry?', 'Non-stop the loop takes about 3.5 to 4 hours, but with photo stops, short walks and lunch most people make a full day of it (6 to 8 hours). The MacEireann audio tour runs from 94 to 180 minutes depending on the version you choose.'), ('Which direction should I drive the Ring of Kerry?', 'Locals and tour coaches drive it anti-clockwise (Killarney to Killorglin to Waterville to Kenmare), and it is best to follow them so you are not meeting big buses head-on on the narrow stretches. In the app you can pick the Northbound or Southbound version to match your direction.'), ('When is the best time of year to drive the Ring of Kerry?', 'May to September gives the best weather and the longest daylight. Setting off early in the morning helps you stay ahead of the tour buses.'), ('Do I need a phone signal for the audio tour?', "No. Download the tour before you set off and it uses your phone's GPS to trigger each story, so it keeps working even on the stretches with no mobile coverage.")], 'skellig-ring': [('How long does the Skellig Ring take to drive?', 'The Skellig Ring is a short loop of about 30 km and the audio tour runs around 40 minutes, though you will want longer to stop at the cliffs and viewpoints. It pairs perfectly with the Ring of Kerry for a full day.'), ('Can you see Skellig Michael from the Skellig Ring?', 'Yes. There are several viewpoints, including the famous telescope point, looking out to Skellig Michael, the island monastery from Star Wars. Landing on the island itself needs a separate, pre-booked boat from Portmagee.'), ('Is the Skellig Ring suitable for campervans and larger vehicles?', 'The roads are narrow and steep over the Coomanaspic pass, which is why tour coaches cannot use it. Cars and campervans are fine if you take it slowly and with care.'), ('Do I need a phone signal for the audio tour?', "No. Download the tour first and it runs on your phone's GPS, so it works even where there is no mobile coverage.")], 'slea-head-drive': [('How long does the Slea Head Drive take?', 'The loop is short in distance (about 30 km) but packed with stops. The full audio tour runs about 180 minutes, or roughly 120 minutes for the Fastrack version, so allow at least half a day.'), ('What is the difference between the full tour and the Fastrack version?', 'The full Slea Head Drive covers every cove, fort and beehive hut, while the Fastrack version keeps the headline sights and loops you back to Dingle after the Gallarus Oratory - ideal if you are short on time.'), ('Which direction should I drive Slea Head?', 'Drive clockwise from Dingle via Ventry. The road is narrow and busy in places, and going clockwise keeps you on the inside, away from the cliff edge.'), ('Do I need a phone signal for the audio tour?', "No. Download the tour before you set off and it uses your phone's GPS to play each story automatically, even where there is no mobile coverage.")], 'cliffs-of-moher-to-galway': [('How long does it take to drive from the Cliffs of Moher to Galway?', 'About 1.5 to 2 hours non-stop, but with the Burren, Doolin and the bayside villages it easily fills a day. The audio tour itself runs around 80 minutes.'), ('What is the best route from the Cliffs of Moher to Galway?', 'The scenic coastal route through Doolin, the Burren and Ballyvaughan, then along the shore of Galway Bay - not the faster inland road. The tour follows this scenic way.'), ('Can I do this drive in the other direction?', 'Yes. There is a separate Galway to Cliffs of Moher (Southbound) version of the tour.'), ('Do I need a phone signal for the audio tour?', "No. Download the tour first and it uses your phone's GPS to trigger each story, so it works even on stretches with no mobile coverage.")], 'galway-to-cliffs-of-moher': [('How long does it take to drive from Galway to the Cliffs of Moher?', 'Roughly 1.5 hours non-stop (about 78 km via the coast), but allow a half to full day to enjoy the Burren and the villages. The audio tour runs around 80 minutes.'), ('Should I take the coastal route or the direct road?', 'The coastal route through Kinvara and the Burren is far more scenic and is the one the tour follows. The direct inland road is faster but misses the highlights.'), ('Can I drive it the other way?', 'Yes. There is a Cliffs of Moher to Galway (Northbound) version of the tour as well.'), ('Do I need a phone signal for the audio tour?', "No. Download the tour before you travel and it runs on your phone's GPS, working even where there is no mobile coverage.")], 'dublin-to-galway': [('How long does it take to drive from Dublin to Galway?', 'About 2 to 2.5 hours non-stop on the M4/M6 motorway (around 190 km). The audio tour runs about 120 minutes and is timed to the motorway drive.'), ('Is there much to see between Dublin and Galway?', 'More than most people realise - the plains of Kildare, the royal midlands, the Shannon crossing at Athlone with its ancient pub, and on into Connacht. The tour tells the story county by county as you cross the country.'), ('Do I need to stop anywhere along the way?', 'No. The tour is designed for the motorway drive with no detours required, though Athlone makes a great break if you have the time.'), ('Do I need a phone signal for the audio tour?', "No. Download the tour before you set off and it uses your phone's GPS to play each chapter automatically, even where coverage is patchy.")]}
 
 for t in TOURS:
     build(t)

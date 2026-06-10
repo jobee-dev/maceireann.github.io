@@ -425,3 +425,10 @@ a.audio-sample .play-btn { pointer-events: none; }
 .variant .variant-meta { font-size: .85rem; font-weight: 600; color: var(--accent-color); white-space: nowrap; }
 .variants-note { font-size: .95rem; color: #6b766f; margin-top: 14px; }
 @media (max-width: 720px) { .variants { grid-template-columns: 1fr; } }
+
+/* --- FAQ --- */
+.faq { margin: 8px 0 8px 0; }
+.faq-item { border-top: 1px solid #e7e3da; padding: 18px 0; }
+.faq-item:last-child { border-bottom: 1px solid #e7e3da; }
+.faq-item h3 { margin: 0 0 6px 0; font-size: 1.1rem; }
+.faq-item p { margin: 0; color: #4a564f; font-size: 1rem; }

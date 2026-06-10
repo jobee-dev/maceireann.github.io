@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Page Not Found | MacÉireann</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/tours/tour.css">
+
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#0F291E">
+    <link rel="icon" href="/images/logo.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+
+    <style>
+        .notfound {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .notfound .code {
+            font-family: 'Uncial Antiqua', serif;
+            font-size: 5rem;
+            color: var(--accent-color);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .notfound h1 { font-size: 2.2rem; margin-bottom: 14px; }
+        .notfound p { font-size: 1.1rem; color: #4a564f; max-width: 480px; margin: 0 auto 28px auto; }
+        .notfound .actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+        .notfound .btn-primary,
+        .notfound .btn-ghost {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+        .notfound .btn-primary { background: var(--accent-color); color: #fff; }
+        .notfound .btn-primary:hover { background: #d67118; color: #fff; text-decoration: none; transform: translateY(-2px); }
+        .notfound .btn-ghost { background: transparent; color: var(--primary-green); border: 1px solid rgba(15,41,30,0.25); }
+        .notfound .btn-ghost:hover { background: rgba(15,41,30,0.05); color: var(--primary-green); text-decoration: none; }
+    </style>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+
+    <nav class="tour-nav">
+        <a class="brand" href="/">
+            <img src="/images/logo.png" alt="MacÉireann logo">
+            <span class="brand-name">MacÉireann</span>
+        </a>
+        <a class="app-store-btn" href="https://apps.apple.com/app/id6774573617" aria-label="Download MacÉireann on the App Store"><svg viewBox="0 0 384 512" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="ass-text"><small>Download on the</small><strong>App Store</strong></span></a>
+    </nav>
+
+    <main class="notfound">
+        <div class="code">404</div>
+        <h1>This road isn't on the map</h1>
+        <p>The page you were looking for has wandered off. Let's get you back on the route.</p>
+        <div class="actions">
+            <a class="btn-primary" href="/">Back to home</a>
+            <a class="btn-ghost" href="/tours/">Browse the tours</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="links">
+            <a href="/">Home</a>
+            <a href="/tours/">All Tours</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="/support.html">Support</a>
+            <a href="#" data-cookie-settings>Cookie settings</a>
+        </div>
+        <p>© 2026 Yarn Point Tours Ltd. All Rights Reserved.</p>
+        <p class="slainte">Sláinte!</p>
+    </footer>
+
+</body>
+</html>
