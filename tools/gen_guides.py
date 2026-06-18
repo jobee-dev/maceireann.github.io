@@ -235,7 +235,7 @@ WAW_BODY = '''            <p class="lead">The Wild Atlantic Way is the longest d
             <p>The route mellows as it runs into West Cork, past the Beara Peninsula and the brightly painted villages of Allihies and Eyeries to its official end at Kinsale, a foodie harbour town that's a fitting place to raise a final glass.</p>
 
             <h2>A 7-day Wild Atlantic Way itinerary</h2>
-            <p>This week-long route covers the very best of the coast &mdash; the Clare, Galway and Kerry sections &mdash; starting from Dublin, where most travellers arrive. Every driving day below has a MacÉireann audio tour to narrate it.</p>
+            <p>This week-long route covers the very best of the coast &mdash; the Clare, Galway and Kerry sections &mdash; starting from Dublin, where most travellers arrive. Every driving day below has a MacÉireann audio tour to narrate it. Prefer a whole-Ireland loop that takes in the historic south too? See our <a href="/guides/7-day-ireland-itinerary.html">7-day Ireland road trip itinerary</a>.</p>
 
             <p class="guide-day"><span class="day-label">Day 1</span>Dublin to Galway</p>
             <p>Pick up your hire car and cross the country to the west coast, letting the <a href="/tours/dublin-to-galway.html">Dublin to Galway</a> tour turn the midlands into a story of Vikings, castles and the mighty Shannon. Overnight in Galway.</p>
@@ -270,7 +270,7 @@ WAW_BODY = '''            <p class="lead">The Wild Atlantic Way is the longest d
             </ul>
 
             <h2>When is the best time to drive it?</h2>
-            <p>May to September gives the best weather and the longest days &mdash; in June the light lasts until nearly 11pm, which buys you hours of extra driving and exploring. May and September are the sweet spot: warm-ish, quieter, and easier for last-minute beds. The route is open year-round and winter brings wild, empty drama to the coast, but expect short days and some seasonal closures. Whenever you go, set off early to have the famous spots to yourself before the day-trippers arrive.</p>
+            <p>May to September gives the best weather and the longest days &mdash; in June the light lasts until nearly 11pm, which buys you hours of extra driving and exploring. May and September are the sweet spot: warm-ish, quieter, and easier for last-minute beds. The route is open year-round and winter brings wild, empty drama to the coast, but expect short days and some seasonal closures. Whenever you go, set off early to have the famous spots to yourself before the day-trippers arrive. For the full season-by-season picture, see our guide to <a href="/guides/best-time-to-visit-ireland.html">the best time to visit Ireland</a>.</p>
 '''
 
 DRIVING_BODY = '''            <p class="lead">A car is the best way to see Ireland &mdash; it unlocks the empty coast roads, the villages off the tour-bus routes and the freedom to stop wherever the view takes you. But a few things catch first-time visitors out, starting with the small matter of which side of the road to drive on. Here's everything you need to drive in Ireland with confidence.</p>
@@ -369,6 +369,105 @@ VS_BODY = '''            <p class="lead">It's the happy dilemma of a Kerry road 
             <p>Yes &mdash; and it's the answer we'd give if you have two days. The peninsulas sit side by side, so you can drive the Ring of Kerry one day and the Slea Head Drive the next, basing yourself around Killarney or Dingle. With a third day, add the quiet <a href="/tours/skellig-ring.html">Skellig Ring</a> off the western end of the Ring of Kerry for the area's most dramatic, coach-free coast. Our <a href="/guides/wild-atlantic-way.html">Wild Atlantic Way guide</a> shows how all three fit into a longer road trip.</p>
 '''
 
+ITIN_BODY = '''            <p class="lead">One week is enough to see the very best of Ireland on a classic self-drive loop from Dublin &mdash; the historic east, the medieval south, the wild peninsulas of Kerry, the great Cliffs of Moher and the buzz of Galway, before crossing the midlands back to the capital. Here's a day-by-day plan that balances driving with time to actually stop and look.</p>
+
+            <h2>The trip at a glance</h2>
+            <div class="glance">
+                <div class="glance-item"><div class="glance-num">7 days</div><div class="glance-label">A classic first-timer's loop</div></div>
+                <div class="glance-item"><div class="glance-num">~900 km</div><div class="glance-label">Total driving, Dublin round-trip</div></div>
+                <div class="glance-item"><div class="glance-num">Dublin</div><div class="glance-label">Start and finish &mdash; handy for flights</div></div>
+                <div class="glance-item"><div class="glance-num">4 bases</div><div class="glance-label">Dublin, Cork, Killarney &amp; Galway</div></div>
+            </div>
+            <p>A quick word before you set off: you'll want a hire car, you'll be <a href="/guides/driving-in-ireland.html">driving on the left</a>, and you should book your beds ahead in summer. Download your MacÉireann tours before you go, too &mdash; they run offline on GPS, exactly where the coast loses signal.</p>
+
+            <h2>Day 1 &mdash; Dublin</h2>
+            <p class="guide-day"><span class="day-label">Day 1</span>Explore the capital</p>
+            <p>Ease in with a day in Dublin: Trinity College and the Book of Kells, Dublin Castle, the Guinness Storehouse and a wander through Temple Bar. No car needed today &mdash; the city is best on foot &mdash; so pick yours up tomorrow morning.</p>
+
+            <p class="guide-day"><span class="day-label">Day 2</span>Dublin to Cork, via the Rock of Cashel</p>
+            <p>Head south on the M8 and break the drive at the <strong>Rock of Cashel</strong>, a dramatic clifftop cluster of medieval cathedral, round tower and chapel rising straight out of the Tipperary plain. Carry on to Cork city, or the pretty harbour town of Kinsale, for the night.</p>
+
+            <p class="guide-day"><span class="day-label">Day 3</span>Cork to Killarney</p>
+            <p>Drive west into County Kerry &mdash; with an optional stop to kiss the Blarney Stone &mdash; and settle in Killarney, the gateway to the peninsulas, for two nights. Spend the afternoon in Killarney National Park among lakes, woods and Muckross House.</p>
+
+            <p class="guide-day"><span class="day-label">Day 4</span>The Ring of Kerry</p>
+            <p>Give the day to the <a href="/tours/ring-of-kerry.html">Ring of Kerry</a>, Ireland's most famous loop &mdash; mountains, ancient forts, colourful villages and island views. Set off early to stay ahead of the tour coaches.</p>
+
+            <p class="guide-day"><span class="day-label">Day 5</span>The Dingle Peninsula</p>
+            <p>North to the Dingle Peninsula for the <a href="/tours/slea-head-drive.html">Slea Head Drive</a> &mdash; beehive huts, golden strands, the Gallarus Oratory and the Blasket Islands &mdash; before an evening of music in Dingle town. (Torn between the two peninsulas? Our <a href="/guides/ring-of-kerry-vs-dingle.html">Ring of Kerry vs Dingle</a> guide helps you choose.)</p>
+
+            <p class="guide-day"><span class="day-label">Day 6</span>Kerry to Galway, via the Cliffs of Moher</p>
+            <p>Take the Tarbert&ndash;Killimer car ferry across the Shannon into County Clare, then drive the coast with the <a href="/tours/galway-to-cliffs-of-moher.html">Cliffs of Moher and the Burren</a> the highlight of the day &mdash; the <a href="/places/cliffs-of-moher.html">Cliffs of Moher</a> and the lunar <a href="/places/the-burren.html">Burren</a> &mdash; finishing in Galway city.</p>
+
+            <p class="guide-day"><span class="day-label">Day 7</span>Galway to Dublin</p>
+            <p>Cross the country back to Dublin with the <a href="/tours/dublin-to-galway.html">Dublin to Galway</a> tour in reverse, the midlands telling their story of Vikings, castles and the mighty Shannon. Drop the car and fly home, full of it.</p>
+
+''' + MID_CTA + '''
+
+            <h2>Tweak the trip to your time</h2>
+            <div class="option-cards">
+                <div class="option-card"><div class="oc-eyebrow">Only 5 days</div><h3>Skip the south</h3><p>Run Dublin &rarr; Galway &rarr; the Cliffs of Moher &rarr; Kerry and back, dropping the Cork leg to focus on the west coast.</p></div>
+                <div class="option-card"><div class="oc-eyebrow">Got 10 days</div><h3>Slow it down</h3><p>Add Connemara west of Galway and a second night on the Dingle Peninsula, and linger longer at every stop.</p></div>
+                <div class="option-card"><div class="oc-eyebrow">Two weeks</div><h3>Go the whole way</h3><p>Add the northwest &mdash; Donegal, Sligo and the full <a href="/guides/wild-atlantic-way.html">Wild Atlantic Way</a> &mdash; for the complete coast.</p></div>
+            </div>
+
+            <h2>Make the most of the driving days</h2>
+            <p>The west-coast portion of this loop &mdash; Kerry, Clare and Galway &mdash; is the heart of the <a href="/guides/wild-atlantic-way.html">Wild Atlantic Way</a>, so see that guide for the coastal stretch in depth. And whenever you go, the weather and daylight shape what's possible: our guide to <a href="/guides/best-time-to-visit-ireland.html">the best time to visit Ireland</a> will help you pick your week.</p>
+'''
+
+BESTTIME_BODY = '''            <p class="lead">Ireland is a year-round destination, but the best time for a road trip depends on what you're after: long days and lively towns, or quiet roads and lower prices. The short answer most locals would give you is late spring and early autumn &mdash; <strong>May and September</strong> &mdash; when you get much of the summer's good weather without the summer's crowds.</p>
+
+            <h2>The season in numbers</h2>
+            <div class="glance">
+                <div class="glance-item"><div class="glance-num">May&ndash;Sep</div><div class="glance-label">Best weather and longest days</div></div>
+                <div class="glance-item"><div class="glance-num">June</div><div class="glance-label">Daylight lasts until nearly 11pm</div></div>
+                <div class="glance-item"><div class="glance-num">May &amp; Sep</div><div class="glance-label">The quiet sweet spot</div></div>
+                <div class="glance-item"><div class="glance-num">Jul&ndash;Aug</div><div class="glance-label">Peak season &mdash; busiest and priciest</div></div>
+            </div>
+
+            <h2>Season by season</h2>
+            <div class="option-cards">
+                <div class="option-card"><div class="oc-eyebrow">Spring · Mar&ndash;May</div><h3>Fresh &amp; green</h3><p>Lengthening days and fewer crowds. April can be showery but bright, and by May the Burren's wildflowers are out and the coast roads are a joy.</p></div>
+                <div class="option-card"><div class="oc-eyebrow">Summer · Jun&ndash;Aug</div><h3>Long &amp; lively</h3><p>The warmest weather, the longest days and everything open. Also the busiest and dearest, so book accommodation well ahead.</p></div>
+                <div class="option-card"><div class="oc-eyebrow">Autumn · Sep&ndash;Nov</div><h3>Quiet &amp; golden</h3><p>September is often glorious and far calmer than midsummer; October brings colour. By November it turns wet and dark.</p></div>
+                <div class="option-card"><div class="oc-eyebrow">Winter · Dec&ndash;Feb</div><h3>Wild &amp; cosy</h3><p>Short days and some seasonal closures, but empty roads, dramatic coasts, turf fires and cities glowing at Christmas.</p></div>
+            </div>
+
+            <h2>Month by month at a glance</h2>
+            <table class="guide-table">
+                <thead><tr><th>Month</th><th>Daylight</th><th>What to expect</th></tr></thead>
+                <tbody>
+                    <tr><td>January</td><td>~8 hrs</td><td>Coldest and quietest; wild coasts, cosy pubs, some closures.</td></tr>
+                    <tr><td>February</td><td>~9.5 hrs</td><td>Still wintry but brightening; great value.</td></tr>
+                    <tr><td>March</td><td>~11.5 hrs</td><td>Spring stirs; St Patrick's Day livens up the towns.</td></tr>
+                    <tr><td>April</td><td>~13.5 hrs</td><td>Showery but bright, lambs in the fields, fewer visitors.</td></tr>
+                    <tr><td>May</td><td>~15.5 hrs</td><td>A sweet spot: long days, wildflowers, quiet roads.</td></tr>
+                    <tr><td>June</td><td>~17 hrs</td><td>Peak daylight to nearly 11pm; warm and lively, filling up.</td></tr>
+                    <tr><td>July&ndash;August</td><td>~16 hrs</td><td>Warmest and busiest; book everything ahead.</td></tr>
+                    <tr><td>September</td><td>~12.5 hrs</td><td>The other sweet spot: mild, calmer, still green.</td></tr>
+                    <tr><td>October</td><td>~10.5 hrs</td><td>Autumn colour and atmosphere; cooler and wetter.</td></tr>
+                    <tr><td>Nov&ndash;December</td><td>~8 hrs</td><td>Short, dark days; festive cities; lowest prices.</td></tr>
+                </tbody>
+            </table>
+
+''' + MID_CTA + '''
+
+            <h2>What the weather is actually like</h2>
+            <p>Ireland's weather is mild rather than extreme, and famously changeable &mdash; locals talk about "four seasons in a day," and they're not joking. Summer temperatures usually sit around 15&ndash;20&deg;C, winters rarely drop far below freezing, and rain is possible in any month, blowing through in showers as often as settling in for the day. Snow is uncommon outside the hills. The practical upshot: pack layers and a good waterproof whatever the season, and don't let a grey morning put you off &mdash; it often burns through by afternoon.</p>
+
+            <h2>Crowds, prices and booking ahead</h2>
+            <p>July and August are the peak, when families travel and the honeypots &mdash; the Cliffs of Moher, the Ring of Kerry, Killarney &mdash; are at their busiest and accommodation at its priciest. The shoulder months of May, June and September give you the best balance of weather, daylight and elbow room. Winter is cheapest and quietest, but plan around shorter days and the odd seasonal closure. Whenever you travel, an early start puts you at the famous spots before the coaches arrive.</p>
+
+            <h2>The best time for&hellip;</h2>
+            <ul style="font-size:1.08rem; color:#3a463f; margin:0 0 18px 22px; line-height:1.7;">
+                <li><strong>Best weather &amp; long driving days:</strong> June and July, with daylight stretching past 10pm.</li>
+                <li><strong>The sweet spot (weather vs crowds):</strong> May and September.</li>
+                <li><strong>Wildflowers in the <a href="/places/the-burren.html">Burren</a>:</strong> May into June, when Arctic and Mediterranean plants bloom together.</li>
+                <li><strong>Fewest crowds &amp; lowest prices:</strong> November to February, outside the Christmas period.</li>
+                <li><strong>Atmosphere &amp; empty roads:</strong> winter &mdash; just keep drives short, as the light fades by mid-afternoon (see our <a href="/guides/driving-in-ireland.html">driving in Ireland</a> guide).</li>
+            </ul>
+'''
+
 GUIDES = [
  {
   'slug': 'wild-atlantic-way', 'crumb': 'Wild Atlantic Way',
@@ -451,6 +550,61 @@ GUIDES = [
     ('Which is less crowded, the Ring of Kerry or Dingle?', "The Dingle Peninsula and its Slea Head Drive are generally quieter, and the narrowest coastal stretches are too tight for tour coaches, so they stay peaceful."),
     ('How long does the Ring of Kerry take compared to Dingle?', "The Ring of Kerry is a ~179 km loop that fills a full day. The Slea Head Drive on Dingle is a much shorter loop of around 30 km, taking half a day to a full day with stops."),
     ('Do I need a guide to drive them?', "No — both are self-drive routes. The MacÉireann app narrates each one turn-by-turn using your phone's GPS, and works offline where there's no signal."),
+  ],
+ },
+ {
+  'slug': '7-day-ireland-itinerary', 'crumb': '7-Day Ireland Itinerary',
+  'region': 'Trip-Planning Guide',
+  'h1': 'The Perfect 7-Day Ireland Road Trip Itinerary',
+  'title': 'The Perfect 7-Day Ireland Road Trip Itinerary | MacÉireann',
+  'meta': "A perfect 7-day Ireland road trip itinerary: a day-by-day self-drive loop from Dublin through the Rock of Cashel, Kerry, the Cliffs of Moher and Galway — with drive times and audio tours.",
+  'ogtitle': 'The Perfect 7-Day Ireland Road Trip Itinerary',
+  'ogdesc': "A day-by-day self-drive loop from Dublin through the south, Kerry, the Cliffs of Moher and Galway — one perfect week in Ireland.",
+  'img': '/newimages/slea-head.webp',
+  'tagline': "One perfect week, one classic loop — a day-by-day self-drive plan from Dublin through Kerry, Clare and Galway and back.",
+  'published': '2026-06-18', 'modified': '2026-06-18',
+  'body': ITIN_BODY,
+  'cta_h2': 'Make every driving day a guided tour',
+  'cta_p': "MacÉireann narrates the legends and history of each leg as you drive it — from the midlands crossing to the Ring of Kerry and the Cliffs of Moher — automatically and offline. Download the routes and let a storyteller ride shotgun all week.",
+  'related': [
+    ('/tours/ring-of-kerry.html', 'Ring of Kerry', '/newimages/ringofkerry.webp'),
+    ('/tours/slea-head-drive.html', 'Slea Head Drive', '/newimages/slea-head.webp'),
+    ('/guides/wild-atlantic-way.html', 'Wild Atlantic Way Guide', '/newimages/road-signs.webp'),
+  ],
+  'faqs': [
+    ('Is 7 days enough to see Ireland?', "Yes, for the highlights. A week is enough to loop from Dublin through the medieval south, the Kerry peninsulas, the Cliffs of Moher and Galway. You won't see everything, but you'll see the best of it without rushing every day."),
+    ('Can you drive around Ireland in a week?', "You can comfortably drive a southern loop of Ireland in a week — Dublin to Cork, Kerry, Clare and Galway and back. Driving the entire coast, including the north, needs closer to two weeks."),
+    ('What is the best 7-day road trip route in Ireland?', "The classic loop runs Dublin → Cork (via the Rock of Cashel) → Killarney and the Ring of Kerry → the Dingle Peninsula → the Cliffs of Moher and the Burren → Galway → back to Dublin."),
+    ('Do you need a car for an Ireland road trip?', "Yes. A car gives you the freedom to follow the coast roads and stop where you like; public transport is limited on the scenic rural routes. Remember that Ireland drives on the left."),
+    ('How much driving is a week in Ireland?', "This loop is around 900 km (roughly 560 miles) in total, spread across the week, with the longest single days being the Dublin–Cork and Galway–Dublin legs."),
+    ('Do the MacÉireann tours work offline?', "Yes. Download each tour before you set off and it plays automatically using your phone's GPS, so it works even on the remote stretches with no mobile coverage."),
+  ],
+ },
+ {
+  'slug': 'best-time-to-visit-ireland', 'crumb': 'Best Time to Visit',
+  'region': 'Trip-Planning Guide',
+  'h1': 'The Best Time to Visit Ireland for a Road Trip',
+  'title': 'The Best Time to Visit Ireland for a Road Trip | MacÉireann',
+  'meta': "When is the best time to visit Ireland? A season-by-season and month-by-month guide to weather, daylight, crowds and prices — and why May and September are the sweet spot.",
+  'ogtitle': 'The Best Time to Visit Ireland for a Road Trip',
+  'ogdesc': "A season-by-season and month-by-month guide to Ireland's weather, daylight, crowds and prices — and why May and September are the sweet spot.",
+  'img': '/newimages/doolin.webp',
+  'tagline': "Weather, daylight, crowds and prices through the year — and why late spring and early autumn are the sweet spot for a road trip.",
+  'published': '2026-06-18', 'modified': '2026-06-18',
+  'body': BESTTIME_BODY,
+  'cta_h2': 'Whenever you go, drive it with its stories',
+  'cta_p': "MacÉireann narrates the legends, history and local lore of the road as you drive — turn-by-turn, automatically, and offline where the coast has no signal. Pick your routes and let a traditional storyteller ride shotgun.",
+  'related': [
+    ('/guides/wild-atlantic-way.html', 'Wild Atlantic Way Guide', '/newimages/road-signs.webp'),
+    ('/places/the-burren.html', 'The Burren', '/newimages/burren.webp'),
+    ('/tours/ring-of-kerry.html', 'Ring of Kerry', '/newimages/ringofkerry.webp'),
+  ],
+  'faqs': [
+    ('What is the best month to visit Ireland?', "May, June and September are the best months — long days and generally good weather, with May and September quieter and cheaper than the July–August peak."),
+    ('Is Ireland worth visiting in winter?', "Yes, if you want atmosphere, low prices and empty roads. The trade-offs are short days (light fades by mid-afternoon) and some seasonal closures, especially on the remote coast."),
+    ('What is the wettest time of year in Ireland?', "Autumn and winter, roughly October to January, are the wettest and windiest, though rain is possible in any month — it usually blows through in showers rather than settling in all day."),
+    ('When is Ireland least crowded?', "Outside July and August and the main holidays. The shoulder months of May and September give you quiet roads with good weather, while winter is the quietest and cheapest of all."),
+    ('What is the weather like in Ireland in summer?', "Mild rather than hot — typically 15 to 20°C, changeable, with very long daylight and a mix of sunshine and passing showers. Pack layers and a waterproof whatever the forecast."),
   ],
  },
 ]
