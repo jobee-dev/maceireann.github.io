@@ -170,6 +170,9 @@ TPL = '''<!DOCTYPE html>
         <div class="links">
             <a href="/">Home</a>
             <a href="/tours/">All Tours</a>
+            <a href="/places/">Places</a>
+            <a href="/guides/">Guides</a>
+            <a href="/about.html">About</a>
             <a href="/privacy.html">Privacy</a>
             <a href="/support.html">Support</a>
             <a href="#" data-cookie-settings>Cookie settings</a>
@@ -182,6 +185,14 @@ TPL = '''<!DOCTYPE html>
 </body>
 </html>
 '''
+
+# Stops whose name matches a published /places/ attraction page link down to it.
+PLACE_LINKS = {'Cliffs of Moher': 'cliffs-of-moher'}
+
+def stop_title(name):
+    esc = html.escape(name)
+    slug = PLACE_LINKS.get(name)
+    return f'<a href="/places/{slug}.html">{esc}</a>' if slug else esc
 
 def build(t):
     ogimg = '/newimages/og/' + t['slug'] + '-og.jpg'
@@ -200,7 +211,7 @@ def build(t):
         faq_block = ''
         faq_schema = ''
     stops_html = ''.join(
-        f'\n                <li><h3>{html.escape(s[0])}</h3><p>{html.escape(s[1])}</p></li>'
+        f'\n                <li><h3>{stop_title(s[0])}</h3><p>{html.escape(s[1])}</p></li>'
         for s in t['stops']) + '\n            '
     itinerary = ', '.join(
         f'{{ "@type": "ListItem", "position": {i+1}, "item": {{ "@type": "TouristAttraction", "name": "{s[0].replace(chr(34),chr(39))}" }} }}'
@@ -344,7 +355,7 @@ TOURS = [
   'dur_v':'~80 min','dist_v':'~90 km','dir_v':'Northbound','se_v':'Cliffs &rarr; Galway',
   'lead':"This drive takes you along the Wild Atlantic Way, nestled between the Atlantic Ocean and the rolling limestone hills of the Burren. Your personal storyteller reveals the hidden stories, the local legends and the must-see stops along the way, from the trad-music village of Doolin to the oyster villages on the shore of Galway Bay.",
   'intro':"Here's how to drive it, the stops worth your time, and the versions you can choose in the app. Plan it for free here, then let MacEireann narrate the whole coast as you go.",
-  'howto':"From the Cliffs of Moher visitor centre, head north through Doolin and into the Burren on the coast road, then follow the shore of Galway Bay east toward the city. The roads are quiet but narrow across the limestone; take your time. You'll reach Galway in well under two hours of driving, but the stops can easily fill a day. Driving the other way? Use the Southbound version below.",
+  'howto':"From the Cliffs of Moher visitor centre, head north through Doolin and into <a href=\"/places/the-burren.html\">the Burren</a> on the coast road, then follow the shore of Galway Bay east toward the city. The roads are quiet but narrow across the limestone; take your time. You'll reach Galway in well under two hours of driving, but the stops can easily fill a day. Driving the other way? Use the Southbound version below.",
   'stops_intro':"These are the places the tour guides you past, in order. The stories are timed to play as you reach each one.",
   'stops':[
     ('Cliffs of Moher',"214 metres of sheer Atlantic cliff, with O'Brien's Tower standing on the very brink."),
@@ -384,7 +395,7 @@ TOURS = [
   'dur_v':'~80 min','dist_v':'78 km','dir_v':'Southbound','se_v':'Galway &rarr; Cliffs',
   'lead':"From the painted streets of Galway, this drive follows the bay south and west to the breathtaking Cliffs of Moher. Along the way we pass through the unique lunar landscape of the Burren, where rare wildflowers bloom from bare grey rock. Hear from locals, soak up the history and discover the hidden gems - an unforgettable Irish adventure.",
   'intro':"Here's how to drive it, the stops worth stopping for, and the versions you can choose in the app. Plan it for free here, then let MacEireann guide and narrate it on the road.",
-  'howto':"Leave Galway south past Clarinbridge and Kinvara, then follow the coast into the Burren before reaching Doolin and the cliffs. It's a short drive, so build in plenty of time to wander the limestone and the harbour villages. Coming from the cliffs instead? Use the Northbound version below.",
+  'howto':"Leave Galway south past Clarinbridge and Kinvara, then follow the coast into <a href=\"/places/the-burren.html\">the Burren</a> before reaching Doolin and the cliffs. It's a short drive, so build in plenty of time to wander the limestone and the harbour villages. Coming from the cliffs instead? Use the Northbound version below.",
   'stops_intro':"These are the places the tour guides you past, in order. The stories are timed to play as you reach each one.",
   'stops':[
     ('Galway City',"Start in the City of the Tribes - medieval streets, the river Corrib and the legend behind Lynch's Window."),
