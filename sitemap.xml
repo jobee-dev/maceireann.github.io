@@ -38,9 +38,21 @@
   </url>
   <url>
     <loc>https://maceireann.ie/guides/</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://maceireann.ie/guides/best-scenic-drives-in-ireland.html</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maceireann.ie/guides/things-to-do-wild-atlantic-way.html</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://maceireann.ie/guides/wild-atlantic-way.html</loc>

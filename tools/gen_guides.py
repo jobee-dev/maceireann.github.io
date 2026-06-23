@@ -160,7 +160,9 @@ TPL = '''<!DOCTYPE html>
 
 
 def build(g):
-    ogimg = '/newimages/og/' + g['slug'] + '-og.jpg'
+    # OG image defaults to the per-slug card; a guide may override with 'og'
+    # to reuse an existing card (handy for listicles that need no new art).
+    ogimg = g.get('og', '/newimages/og/' + g['slug'] + '-og.jpg')
     related_html = ''.join(
         f'\n                <a class="related-card" href="{r[0]}" style="background-image:url(\'{r[2]}\');"><span>{r[1]}</span></a>'
         for r in g['related']) + '\n            '
@@ -178,7 +180,7 @@ def build(g):
     else:
         faq_block = ''
         faq_schema = ''
-    data = {k: v for k, v in g.items() if k not in ('related', 'faqs')}
+    data = {k: v for k, v in g.items() if k not in ('related', 'faqs', 'og')}
     out = TPL.format(app_url=APP_URL, app_badge=APP_BADGE, ogimg=ogimg,
                      related_html=related_html, faq_block=faq_block, faq_schema=faq_schema, **data)
     with open(f"guides/{g['slug']}.html", 'w') as f:
@@ -468,7 +470,188 @@ BESTTIME_BODY = '''            <p class="lead">Ireland is a year-round destinati
             </ul>
 '''
 
+BESTDRIVES_BODY = '''            <p class="lead">Ireland was made for the scenic drive. A small country with an outsized coastline, it packs sea cliffs, mountain passes, empty strands and ancient stone into distances you can cross in an afternoon &mdash; and the back roads that link them are half the pleasure. These are the ten most beautiful drives in Ireland, from the world-famous loops of Kerry to quiet passes most visitors never find, with a sense of how long each takes and why it earns its place.</p>
+
+            <p>Several of them &mdash; the Kerry peninsulas and the Clare coast in particular &mdash; we've turned into <a href="/tours/">GPS audio tours</a>, so a traditional storyteller can narrate the legends and history as you drive. Where that's the case, we've linked it. The rest are simply too good to leave off the list.</p>
+
+            <h2>The drives at a glance</h2>
+            <div class="glance">
+                <div class="glance-item"><div class="glance-num">10 drives</div><div class="glance-label">From Kerry to the Causeway Coast</div></div>
+                <div class="glance-item"><div class="glance-num">30&ndash;2,500 km</div><div class="glance-label">From a half-day loop to the full coast</div></div>
+                <div class="glance-item"><div class="glance-num">Drive on the left</div><div class="glance-label">Narrow, winding &mdash; take your time</div></div>
+                <div class="glance-item"><div class="glance-num">Mostly free</div><div class="glance-label">The roads themselves cost nothing</div></div>
+            </div>
+            <p style="font-size:0.95rem; color:#6b766f;">New to Irish roads? Read our guide to <a href="/guides/driving-in-ireland.html">driving in Ireland</a> first &mdash; which side of the road, the narrow lanes and the rules &mdash; then pick your drive below.</p>
+
+            <h2>1. The Ring of Kerry</h2>
+            <p>The most famous scenic drive in Ireland, and for good reason. The <a href="/tours/ring-of-kerry.html">Ring of Kerry</a> is a roughly 179 km loop of the Iveragh Peninsula that strings together mountains, the Lakes of Killarney, ancient stone forts, island views and colourful villages like Sneem and Kenmare. It's the big, varied bucket-list day out &mdash; give it a full day, set off early to keep ahead of the tour coaches, and you'll see why it has topped these lists for a century.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Time:</strong> a full day · <strong>Where:</strong> County Kerry · <strong>Drive it with stories:</strong> <a href="/tours/ring-of-kerry.html">Ring of Kerry audio tour</a></p>
+
+            <h2>2. The Slea Head Drive, Dingle Peninsula</h2>
+            <p>Shorter, wilder and more intimate than its famous neighbour, the <a href="/tours/slea-head-drive.html">Slea Head Drive</a> rounds the tip of the Dingle Peninsula in about 30 km of pure drama: clifftop beehive huts, golden strands, the much-photographed Dunquin Pier, the perfectly preserved Gallarus Oratory and views out to the Blasket Islands &mdash; all in a living Irish-speaking Gaeltacht. Its narrowest stretches are too tight for coaches, so it stays gloriously peaceful. Torn between this and the Ring? See <a href="/guides/ring-of-kerry-vs-dingle.html">Ring of Kerry vs Dingle</a>.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Time:</strong> half to a full day · <strong>Where:</strong> County Kerry · <strong>Drive it with stories:</strong> <a href="/tours/slea-head-drive.html">Slea Head audio tour</a></p>
+
+            <h2>3. The Cliffs of Moher &amp; the Burren coast, County Clare</h2>
+            <p>If you only drive one stretch of the west, make it this one. The Clare coast runs from the lunar limestone of the <a href="/places/the-burren.html">Burren</a> &mdash; where Arctic and Mediterranean wildflowers bloom side by side from bare grey rock &mdash; to the <a href="/places/cliffs-of-moher.html">Cliffs of Moher</a>, 214 metres of sheer Atlantic cliff and Ireland's most visited natural wonder. We've narrated it both ways: <a href="/tours/galway-to-cliffs-of-moher.html">Galway to the Cliffs of Moher</a> and <a href="/tours/cliffs-of-moher-to-galway.html">back again</a>, through Doolin and the oyster villages of the bay.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Time:</strong> a full day · <strong>Where:</strong> County Clare · <strong>Drive it with stories:</strong> <a href="/tours/galway-to-cliffs-of-moher.html">Galway &amp; Cliffs of Moher audio tour</a></p>
+
+            <h2>4. The Skellig Ring</h2>
+            <p>Tucked off the western end of the Ring of Kerry, the <a href="/tours/skellig-ring.html">Skellig Ring</a> is the area's best-kept secret: a narrow, coach-free loop of cliffs, remote beaches and the long, dramatic view out to Skellig Michael, the monastery island that doubled as Luke Skywalker's refuge in <em>Star Wars</em>. It's a short drive that feels like the edge of the world.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Time:</strong> half a day · <strong>Where:</strong> County Kerry · <strong>Drive it with stories:</strong> <a href="/tours/skellig-ring.html">Skellig Ring audio tour</a></p>
+
+''' + MID_CTA + '''
+
+            <h2>5. The Wild Atlantic Way</h2>
+            <p>Not one drive but the mother of them all: the <a href="/guides/wild-atlantic-way.html">Wild Atlantic Way</a> is the longest defined coastal touring route in the world, some 2,500 km running the entire western seaboard from Donegal down to Kinsale in Cork. Numbers 1 to 4 above are all stretches of it. You'd need ten days to two weeks to drive the whole thing &mdash; most people pick a region &mdash; but knowing how it fits together is the key to planning the trip. Our <a href="/guides/wild-atlantic-way.html">complete guide</a> breaks it down region by region.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Time:</strong> 10&ndash;14 days for the lot · <strong>Where:</strong> the whole west coast · <strong>Plan it:</strong> <a href="/guides/wild-atlantic-way.html">Wild Atlantic Way guide</a></p>
+
+            <h2>6. Connemara &amp; the Sky Road, County Galway</h2>
+            <p>West of Galway city lies Connemara, a land of bog, mountain and island where the light does extraordinary things. The Sky Road, a small looped drive out of Clifden, climbs to a headland with a giddy panorama over the Atlantic and its scatter of islands &mdash; one of the finest short coastal drives in the country. Pair it with the Twelve Bens mountains and Kylemore Abbey for a full day.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Time:</strong> a full day · <strong>Where:</strong> County Galway</p>
+
+            <h2>7. Slieve League &amp; the Donegal coast</h2>
+            <p>In the wild, less-travelled northwest, the sea cliffs of Slieve League rise almost 600 metres straight from the ocean &mdash; nearly three times the height of the Cliffs of Moher, and far quieter. The drives around them, through Glencolmcille and the Donegal Gaeltacht, are some of the most remote and rewarding in Ireland. This is the route for travellers who want the coast to themselves.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Time:</strong> a full day · <strong>Where:</strong> County Donegal</p>
+
+            <h2>8. The Causeway Coastal Route, County Antrim</h2>
+            <p>Often rated among the great road trips of the world, the Causeway Coastal Route runs along the top of Northern Ireland from Belfast to Derry, past the basalt columns of the Giant's Causeway, the Carrick-a-Rede rope bridge, the ruins of Dunluce Castle and the dark tunnel of beech trees known as the Dark Hedges. (You're in the UK here, so speed limits switch to miles per hour.)</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Time:</strong> one to two days · <strong>Where:</strong> County Antrim (Northern Ireland)</p>
+
+            <h2>9. The Wicklow Mountains &amp; the Sally Gap</h2>
+            <p>The easiest great drive to reach &mdash; barely an hour from Dublin &mdash; the Military Road climbs into the Wicklow Mountains across high, empty blanket bog, over the Sally Gap and down to the monastic ruins of Glendalough in its glacial valley. Wild and atmospheric, it's the perfect day trip if the capital is your base and the west is too far.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Time:</strong> half to a full day · <strong>Where:</strong> County Wicklow</p>
+
+            <h2>10. The Healy Pass, Beara Peninsula</h2>
+            <p>For drivers who love a mountain pass, the Healy Pass zig-zags over the spine of the Beara Peninsula between Cork and Kerry, a ribbon of switchbacks through rugged, rock-strewn hills to a high saddle with views down both sides. The Beara itself is the quietest of the southwest peninsulas &mdash; the one the coaches forget &mdash; and all the better for it.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Time:</strong> half a day · <strong>Where:</strong> the Cork&ndash;Kerry border</p>
+
+            <h2>How to fit them into a trip</h2>
+            <p>You can't drive all ten in one visit, and you shouldn't try. The four southwestern drives &mdash; the Ring of Kerry, Slea Head, the Clare coast and the Skellig Ring &mdash; sit close together and make a natural week, the heart of any <a href="/guides/wild-atlantic-way.html">Wild Atlantic Way</a> road trip; our <a href="/guides/7-day-ireland-itinerary.html">7-day Ireland itinerary</a> threads several of them together with the historic south, and our pick of the <a href="/guides/things-to-do-wild-atlantic-way.html">best things to do on the Wild Atlantic Way</a> covers what to stop for along the way. Coming from the capital, the cross-country <a href="/tours/dublin-to-galway.html">Dublin to Galway</a> drive turns the journey west into a story in its own right. And whenever you go, the weather and daylight shape what's possible &mdash; see <a href="/guides/best-time-to-visit-ireland.html">the best time to visit Ireland</a>.</p>
+'''
+
+WAWTHINGS_BODY = '''            <p class="lead">The Wild Atlantic Way is 2,500 km of Ireland's wildest coast &mdash; and the joy of it is in the stopping. Beyond the famous cliffs and loops there are islands to sail to, trad sessions to fall into, beaches to chase the sunset along and seafood to eat at the water's edge. Here are the twelve best things to do along the route, running roughly north to south, with a sense of where each one sits and why it's worth your time.</p>
+
+            <p>Several of these we narrate as <a href="/tours/">GPS audio tours</a>, so a traditional storyteller can fill in the legend and history as you go &mdash; we've linked those. For the full route and how the regions fit together, start with our <a href="/guides/wild-atlantic-way.html">guide to driving the Wild Atlantic Way</a>, or browse the <a href="/guides/best-scenic-drives-in-ireland.html">best scenic drives in Ireland</a>.</p>
+
+            <h2>The route at a glance</h2>
+            <div class="glance">
+                <div class="glance-item"><div class="glance-num">2,500 km</div><div class="glance-label">Of Atlantic coast to explore</div></div>
+                <div class="glance-item"><div class="glance-num">9 counties</div><div class="glance-label">Donegal down to Cork</div></div>
+                <div class="glance-item"><div class="glance-num">12 things</div><div class="glance-label">From sea cliffs to seafood</div></div>
+                <div class="glance-item"><div class="glance-num">All seasons</div><div class="glance-label">Best May&ndash;September</div></div>
+            </div>
+
+            <h2>1. Stand on the edge of the Cliffs of Moher</h2>
+            <p>The single most famous sight on the route: 214 metres of sheer Atlantic cliff running for 14 km along the Clare coast, with the Aran Islands and the hills of Connemara laid out beyond on a clear day. Come early or near sunset to beat the coaches. Our visitor guide to the <a href="/places/cliffs-of-moher.html">Cliffs of Moher</a> covers tickets, parking and the folklore carved into the headland.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Where:</strong> County Clare</p>
+
+            <h2>2. Wander the lunar landscape of the Burren</h2>
+            <p>Just inland from the cliffs, the <a href="/places/the-burren.html">Burren</a> is a vast pavement of bare grey limestone where Arctic and Mediterranean wildflowers bloom side by side from the rock, and where dolmens like Poulnabrone have stood for nearly 6,000 years. Walk it, or drive through it on the <a href="/tours/galway-to-cliffs-of-moher.html">Galway to Cliffs of Moher</a> tour.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Where:</strong> County Clare</p>
+
+            <h2>3. Drive the Ring of Kerry</h2>
+            <p>Ireland's most famous scenic loop: 179 km of mountains, lakes, ancient forts and colourful villages around the Iveragh Peninsula. Give it a full day and set off early. Hear the legends turn-by-turn on the <a href="/tours/ring-of-kerry.html">Ring of Kerry audio tour</a>.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Where:</strong> County Kerry · <strong>Audio tour available</strong></p>
+
+            <h2>4. Round Slea Head on the Dingle Peninsula</h2>
+            <p>Wilder and quieter than the Ring, the <a href="/tours/slea-head-drive.html">Slea Head Drive</a> rounds the tip of the Dingle Peninsula past beehive huts, golden strands, the Gallarus Oratory and Dunquin Pier, with the Blasket Islands offshore &mdash; all in a living Irish-speaking Gaeltacht. (Not sure which peninsula to pick? See <a href="/guides/ring-of-kerry-vs-dingle.html">Ring of Kerry vs Dingle</a>.)</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Where:</strong> County Kerry · <strong>Audio tour available</strong></p>
+
+            <h2>5. Gaze out to Skellig Michael</h2>
+            <p>From the coach-free <a href="/tours/skellig-ring.html">Skellig Ring</a> you look out to Skellig Michael, the jagged monastery island where monks lived in stone beehive cells from the sixth century &mdash; and where Luke Skywalker hid in <em>Star Wars</em>. Boats sail out in summer (book well ahead); even from the mainland the view is unforgettable.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Where:</strong> County Kerry · <strong>Audio tour available</strong></p>
+
+''' + MID_CTA + '''
+
+            <h2>6. Fall into a trad session in Galway or Doolin</h2>
+            <p>The west coast is the heartland of Irish traditional music. Galway city's pubs spill fiddle and bodhrán onto the street on a good night, and the tiny County Clare village of Doolin is famous the world over for its sessions. Pull up a stool, order a pint, and let the music find you.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Where:</strong> Galway &amp; County Clare</p>
+
+            <h2>7. Sail out to the Aran Islands</h2>
+            <p>Three windswept limestone islands off the Galway coast where Irish is still the daily language and the prehistoric cliff fort of Dún Aonghasa clings to a 100-metre drop. A ferry from Doolin or Rossaveal takes you to a world of stone walls, currachs and an older Ireland.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Where:</strong> off County Galway</p>
+
+            <h2>8. Stand beneath the cliffs of Slieve League</h2>
+            <p>In the wild northwest, the sea cliffs of Slieve League rise almost 600 metres straight from the ocean &mdash; nearly three times the height of the Cliffs of Moher, and far less crowded. The surrounding Donegal Gaeltacht is the route at its rawest and most remote.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Where:</strong> County Donegal</p>
+
+            <h2>9. Lose yourself in Connemara</h2>
+            <p>West of Galway lies Connemara, a land of bog, mountain and island where the light is extraordinary. Drive the Sky Road out of Clifden, visit the fairytale Kylemore Abbey on its lake, and walk among the Twelve Bens. It's some of the most photographed country in Ireland.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Where:</strong> County Galway</p>
+
+            <h2>10. Surf the Atlantic in Sligo &amp; Bundoran</h2>
+            <p>The same swells that batter the cliffs make the northwest one of Europe's best cold-water surf coasts. Bundoran and Strandhill draw surfers from all over, and you can take a lesson and ride your first wave even as a complete beginner &mdash; wetsuit very much required.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Where:</strong> counties Sligo &amp; Donegal</p>
+
+            <h2>11. Eat your way through Kinsale &amp; West Cork</h2>
+            <p>The southern end of the route is its foodie heart. Kinsale, the official finish, is a pretty harbour town famous for its restaurants, while West Cork turns out some of Ireland's finest cheese, seafood and craft everything. A fitting place to raise a final glass.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Where:</strong> County Cork</p>
+
+            <h2>12. Chase the sunset on a western beach</h2>
+            <p>Facing the open Atlantic, the whole coast is built for sunsets &mdash; from the surf strands of Sligo to the white sand of Dingle's beaches. In June the light lingers until nearly 11pm, so there's no rush. Find an empty strand, and let the day burn out over the ocean.</p>
+            <p style="font-size:0.95rem; color:#6b766f;"><strong>Where:</strong> all along the coast</p>
+
+            <h2>Fitting it all into a trip</h2>
+            <p>You won't do all twelve in one visit &mdash; the route is too long &mdash; so pick a region and go deep. The southwest (Clare, Kerry and Galway) holds the densest cluster of highlights and makes a natural week; our <a href="/guides/7-day-ireland-itinerary.html">7-day Ireland itinerary</a> strings several of these together. Read up on <a href="/guides/driving-in-ireland.html">driving in Ireland</a> before you set off, and check <a href="/guides/best-time-to-visit-ireland.html">the best time to visit</a> to pick your week.</p>
+'''
+
 GUIDES = [
+ {
+  'slug': 'things-to-do-wild-atlantic-way', 'crumb': 'Things to Do',
+  'region': 'Trip-Planning Guide',
+  'h1': 'The 12 Best Things to Do on the Wild Atlantic Way',
+  'title': 'The 12 Best Things to Do on the Wild Atlantic Way | MacÉireann',
+  'meta': "The 12 best things to do on the Wild Atlantic Way — from the Cliffs of Moher and the Ring of Kerry to trad sessions, the Aran Islands, surfing and West Cork's seafood.",
+  'ogtitle': 'The 12 Best Things to Do on the Wild Atlantic Way',
+  'ogdesc': "From the Cliffs of Moher and the Kerry peninsulas to trad sessions, the Aran Islands, surfing and West Cork seafood — the best of Ireland's epic coastal route.",
+  'img': '/newimages/cliffs-of-moher.webp',
+  'og': '/newimages/og/wild-atlantic-way-og.jpg',
+  'tagline': "From world-famous cliffs to hidden beaches, trad sessions and island crossings — the twelve experiences that make Ireland's great coastal route unmissable.",
+  'published': '2026-06-23', 'modified': '2026-06-23',
+  'body': WAWTHINGS_BODY,
+  'cta_h2': 'Hear the stories behind every stop',
+  'cta_p': "MacÉireann narrates the legends, history and local lore of the Wild Atlantic Way as you drive it — turn-by-turn, automatically, and offline where the coast has no signal. Pick your routes and let a traditional storyteller ride shotgun.",
+  'related': [
+    ('/places/cliffs-of-moher.html', 'Cliffs of Moher', '/newimages/cliffs-of-moher.webp'),
+    ('/tours/ring-of-kerry.html', 'Ring of Kerry', '/newimages/ringofkerry.webp'),
+    ('/guides/wild-atlantic-way.html', 'Wild Atlantic Way Guide', '/newimages/road-signs.webp'),
+  ],
+  'faqs': [
+    ('What are the best things to do on the Wild Atlantic Way?', "The highlights include standing on the Cliffs of Moher, exploring the Burren, driving the Ring of Kerry and the Slea Head Drive, sailing to the Aran Islands or Skellig Michael, catching a trad session in Galway or Doolin, and eating your way through Kinsale and West Cork."),
+    ('How many days do you need on the Wild Atlantic Way?', "To see the southwest highlights — Clare, Kerry and Galway — allow about a week. Driving the full route from Donegal to Cork with stops takes 10 to 14 days."),
+    ('What is the most famous attraction on the Wild Atlantic Way?', "The Cliffs of Moher in County Clare are the most visited, but the Ring of Kerry, the Dingle Peninsula and Skellig Michael are just as iconic — all of them stretches or sights along the route."),
+    ('Is the Wild Atlantic Way worth it?', "Yes — it's one of the world's great road trips, packing sea cliffs, islands, beaches, music and food into a single coastal route. Pick a region rather than rushing the whole thing, and give yourself time to stop."),
+    ('Can I do the Wild Atlantic Way with an audio tour?', "Yes. The MacÉireann app narrates several stretches — the Ring of Kerry, the Slea Head Drive, the Skellig Ring and the Clare coast — turn-by-turn using your phone's GPS, and it works offline where there's no signal."),
+  ],
+ },
+ {
+  'slug': 'best-scenic-drives-in-ireland', 'crumb': 'Best Scenic Drives',
+  'region': 'Trip-Planning Guide',
+  'h1': 'The 10 Best Scenic Drives in Ireland',
+  'title': 'The 10 Best Scenic Drives in Ireland (2026 Guide) | MacÉireann',
+  'meta': "The 10 best scenic drives in Ireland, from the Ring of Kerry and the Slea Head Drive to the Causeway Coast and hidden mountain passes — with drive times, regions and route tips.",
+  'ogtitle': 'The 10 Best Scenic Drives in Ireland',
+  'ogdesc': "From the Ring of Kerry and the Cliffs of Moher coast to the Causeway Coast and hidden mountain passes — Ireland's ten most beautiful drives, with times and tips.",
+  'img': '/newimages/ringofkerry.webp',
+  'og': '/newimages/og/ring-of-kerry-og.jpg',
+  'tagline': "Ireland's ten most beautiful drives, from the famous Kerry loops to quiet passes most visitors never find — with how long each takes and why it earns its place.",
+  'published': '2026-06-23', 'modified': '2026-06-23',
+  'body': BESTDRIVES_BODY,
+  'cta_h2': 'Drive the best of them with a storyteller aboard',
+  'cta_p': "MacÉireann turns Ireland's great drives into guided tours — legends, history and local lore narrated turn-by-turn as you reach each place, automatically and offline where the coast has no signal. Pick your routes and let a traditional storyteller ride shotgun.",
+  'related': [
+    ('/tours/ring-of-kerry.html', 'Ring of Kerry', '/newimages/ringofkerry.webp'),
+    ('/tours/slea-head-drive.html', 'Slea Head Drive', '/newimages/slea-head.webp'),
+    ('/guides/wild-atlantic-way.html', 'Wild Atlantic Way Guide', '/newimages/road-signs.webp'),
+  ],
+  'faqs': [
+    ('What is the most scenic drive in Ireland?', "The Ring of Kerry is the most famous, but the Slea Head Drive on the Dingle Peninsula and the Clare coast past the Cliffs of Moher and the Burren are every bit as beautiful and often quieter. All three are stretches of the Wild Atlantic Way."),
+    ('What is the best scenic drive in Ireland for first-timers?', "The Ring of Kerry is the classic first choice — a full day of mountains, coast, lakes and villages. If you'd rather avoid the coaches, the shorter Slea Head Drive on the Dingle Peninsula is wilder and quieter."),
+    ('How many days do you need to drive the scenic routes in Ireland?', "The four great southwestern drives — the Ring of Kerry, Slea Head, the Clare coast and the Skellig Ring — make a comfortable week. Driving the full Wild Atlantic Way along the whole west coast takes 10 to 14 days."),
+    ('Are the scenic drives in Ireland difficult?', "The scenery comes on narrow, winding rural roads, and Ireland drives on the left, so take them slowly and allow more time than the distance suggests. Our guide to driving in Ireland covers everything a first-timer needs."),
+    ('Can you do these drives with an audio guide?', "Yes. The MacÉireann app narrates several of these routes — the Ring of Kerry, Slea Head, the Skellig Ring and the Clare coast — turn-by-turn using your phone's GPS, and it works offline where there's no mobile signal."),
+  ],
+ },
  {
   'slug': 'wild-atlantic-way', 'crumb': 'Wild Atlantic Way',
   'region': 'Trip-Planning Guide',
